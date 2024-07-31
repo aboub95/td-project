@@ -1,0 +1,196 @@
+<html><head><base href="https://cours-interactifs-troisieme.edu/svt/genetique/pratique">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pratique - Génétique et Transmission de l'Information (3ème)</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f8ff;
+  }
+  h1, h2, h3 {
+    color: #2c3e50;
+  }
+  .activity {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .interactive {
+    background-color: #e8f4f8;
+    border-left: 5px solid #3498db;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  #dna-sequence, #mitosis-phases {
+    font-family: monospace;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  #feedback {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <h1>Pratique - Génétique et Transmission de l'Information</h1>
+
+  <div class="activity">
+    <h2>1. Simulation de la réplication de l'ADN</h2>
+    <p>Observez la séquence d'ADN ci-dessous et complétez le brin complémentaire.</p>
+    <div class="interactive">
+      <p>Brin d'ADN original:</p>
+      <div id="dna-sequence">ATCG--TACG--GCTA--CGAT</div>
+      <p>Complétez le brin complémentaire (utilisez A, T, C, G):</p>
+      <input type="text" id="complementary-strand" placeholder="Entrez la séquence complémentaire">
+      <button onclick="checkDNASequence()">Vérifier</button>
+      <div id="dna-feedback"></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <h2>2. Les phases de la mitose</h2>
+    <p>Remettez les phases de la mitose dans le bon ordre en les glissant-déposant.</p>
+    <div class="interactive">
+      <div id="mitosis-phases">
+        <div draggable="true">Anaphase</div>
+        <div draggable="true">Prophase</div>
+        <div draggable="true">Métaphase</div>
+        <div draggable="true">Télophase</div>
+      </div>
+      <button onclick="checkMitosisOrder()">Vérifier l'ordre</button>
+      <div id="mitosis-feedback"></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <h2>3. Quiz sur la transmission de l'information génétique</h2>
+    <div class="interactive">
+      <p>1. Quelle molécule porte l'information génétique ?</p>
+      <select id="quiz-1">
+        <option value="">Choisissez une réponse</option>
+        <option value="a">Protéine</option>
+        <option value="b">ADN</option>
+        <option value="c">ARN</option>
+        <option value="d">Lipide</option>
+      </select>
+
+      <p>2. Combien de chromosomes possède une cellule humaine normale ?</p>
+      <select id="quiz-2">
+        <option value="">Choisissez une réponse</option>
+        <option value="a">23</option>
+        <option value="b">46</option>
+        <option value="c">48</option>
+        <option value="d">64</option>
+      </select>
+
+      <p>3. Quel processus permet la production de cellules génétiquement identiques ?</p>
+      <select id="quiz-3">
+        <option value="">Choisissez une réponse</option>
+        <option value="a">Méiose</option>
+        <option value="b">Mitose</option>
+        <option value="c">Fécondation</option>
+        <option value="d">Mutation</option>
+      </select>
+
+      <button onclick="checkQuizAnswers()">Vérifier les réponses</button>
+      <div id="quiz-feedback"></div>
+    </div>
+  </div>
+
+<script>
+function checkDNASequence() {
+  const original = "ATCGTACGGCTACGAT";
+  const complement = "TAGCATGCCGATGCTA";
+  const userInput = document.getElementById('complementary-strand').value.toUpperCase().replace(/[^ATCG]/g, '');
+  
+  if (userInput === complement) {
+    document.getElementById('dna-feedback').innerHTML = "Correct ! Vous avez parfaitement complété le brin d'ADN.";
+  } else {
+    document.getElementById('dna-feedback').innerHTML = "Pas tout à fait. Essayez encore !";
+  }
+}
+
+function checkMitosisOrder() {
+  const correctOrder = ["Prophase", "Métaphase", "Anaphase", "Télophase"];
+  const userOrder = Array.from(document.getElementById('mitosis-phases').children).map(div => div.textContent);
+  
+  if (JSON.stringify(userOrder) === JSON.stringify(correctOrder)) {
+    document.getElementById('mitosis-feedback').innerHTML = "Parfait ! Vous avez correctement ordonné les phases de la mitose.";
+  } else {
+    document.getElementById('mitosis-feedback').innerHTML = "L'ordre n'est pas correct. Réessayez !";
+  }
+}
+
+function checkQuizAnswers() {
+  const correctAnswers = {
+    'quiz-1': 'b',
+    'quiz-2': 'b',
+    'quiz-3': 'b'
+  };
+  
+  let score = 0;
+  for (let i = 1; i <= 3; i++) {
+    if (document.getElementById(`quiz-${i}`).value === correctAnswers[`quiz-${i}`]) {
+      score++;
+    }
+  }
+  
+  document.getElementById('quiz-feedback').innerHTML = `Vous avez obtenu ${score}/3 bonnes réponses.`;
+}
+
+// Enable drag and drop for mitosis phases
+const mitosisContainer = document.getElementById('mitosis-phases');
+let draggedItem = null;
+
+mitosisContainer.addEventListener('dragstart', function(e) {
+  draggedItem = e.target;
+  setTimeout(() => e.target.style.display = 'none', 0);
+});
+
+mitosisContainer.addEventListener('dragend', function(e) {
+  setTimeout(() => e.target.style.display = 'block', 0);
+  draggedItem = null;
+});
+
+mitosisContainer.addEventListener('dragover', function(e) {
+  e.preventDefault();
+});
+
+mitosisContainer.addEventListener('dragenter', function(e) {
+  e.preventDefault();
+  if (e.target.draggable) e.target.style.background = '#e0e0e0';
+});
+
+mitosisContainer.addEventListener('dragleave', function(e) {
+  if (e.target.draggable) e.target.style.background = '';
+});
+
+mitosisContainer.addEventListener('drop', function(e) {
+  if (e.target.draggable) {
+    e.target.style.background = '';
+    this.insertBefore(draggedItem, e.target.nextSibling);
+  }
+});
+</script>
+
+</body></html>

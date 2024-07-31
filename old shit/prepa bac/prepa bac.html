@@ -1,0 +1,269 @@
+<html><head><base href="https://cours-interactifs-terminale.edu/"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Programme de cours interactif - SVT, Physique-Chimie, Mathématiques (Terminale)</title><style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+  }
+  header {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  nav {
+    background-color: #2980b9;
+    padding: 0.5rem;
+  }
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  nav ul li {
+    margin: 0 1rem;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  .subject {
+    margin-bottom: 2rem;
+  }
+  h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+  }
+  .chapter, .prep-item {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .chapter:hover, .prep-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .chapter-title, .prep-title {
+    font-weight: bold;
+    color: #2c3e50;
+    cursor: pointer;
+  }
+  .chapter-content, .prep-content {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+  }
+  .locked {
+    opacity: 0.7;
+    position: relative;
+  }
+  .locked::after {
+    content: "🔒";
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+  }
+  #paymentModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .close:hover {
+    color: #000;
+  }
+  .payment-option {
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .payment-option:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+  }
+  .start-lesson, .start-prep {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .start-lesson:hover, .start-prep:hover {
+    background-color: #27ae60;
+  }
+  #prepaBac {
+    background-color: #e74c3c;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+  #prepaBac h2 {
+    color: white;
+    border-bottom-color: white;
+  }
+</style></head><body>
+  <header>
+    <h1>Programme de cours interactif - Terminale</h1>
+    <p>SVT, Physique-Chimie, Mathématiques et Prépa Bac</p>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#svt">SVT</a></li>
+      <li><a href="#physique-chimie">Physique-Chimie</a></li>
+      <li><a href="#maths">Mathématiques</a></li>
+      <li><a href="#prepaBac">Prépa Bac</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Les sections SVT, Physique-Chimie et Mathématiques restent inchangées -->
+
+    <section id="prepaBac">
+      <h2>Préparation au Baccalauréat</h2>
+      <div class="prep-item">
+        <p class="prep-title">Annales et corrigés</p>
+        <div class="prep-content">
+          <p>Accédez à une sélection d'annales des années précédentes avec leurs corrigés détaillés.</p>
+          <button class="start-prep" onclick="startPrep('annales')">Commencer la révision</button>
+        </div>
+      </div>
+      <div class="prep-item">
+        <p class="prep-title">Fiches de révision</p>
+        <div class="prep-content">
+          <p>Des fiches synthétiques pour réviser efficacement les points clés du programme.</p>
+          <button class="start-prep" onclick="startPrep('fiches')">Consulter les fiches</button>
+        </div>
+      </div>
+      <div class="prep-item">
+        <p class="prep-title">Quiz et exercices types</p>
+        <div class="prep-content">
+          <p>Testez vos connaissances avec des quiz interactifs et des exercices types du bac.</p>
+          <button class="start-prep" onclick="startPrep('quiz')">Commencer les exercices</button>
+        </div>
+      </div>
+      <div class="prep-item locked">
+        <p class="prep-title">Méthodologie de l'épreuve</p>
+      </div>
+      <div class="prep-item locked">
+        <p class="prep-title">Simulations d'oraux</p>
+      </div>
+      <div class="prep-item locked">
+        <p class="prep-title">Planning de révision personnalisé</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="paymentModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Choisissez votre mode de paiement</h2>
+      <div class="payment-option" id="airtelMoney">
+        <h3>Airtel Money</h3>
+        <p>Payez facilement avec votre compte Airtel Money.</p>
+      </div>
+      <div class="payment-option" id="carteBancaire">
+        <h3>Carte Bancaire</h3>
+        <p>Utilisez votre carte bancaire pour un paiement sécurisé.</p>
+      </div>
+      <div class="payment-option" id="moovMoney">
+        <h3>Moov Money</h3>
+        <p>Effectuez votre paiement via Moov Money.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const chapters = document.querySelectorAll('.chapter, .prep-item');
+    const modal = document.getElementById('paymentModal');
+    const closeBtn = document.querySelector('.close');
+    const paymentOptions = document.querySelectorAll('.payment-option');
+
+    chapters.forEach(item => {
+      const title = item.querySelector('.chapter-title, .prep-title');
+      const content = item.querySelector('.chapter-content, .prep-content');
+      
+      title.addEventListener('click', () => {
+        if (item.classList.contains('locked')) {
+          modal.style.display = 'block';
+        } else {
+          content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+      });
+    });
+
+    closeBtn.onclick = () => {
+      modal.style.display = 'none';
+    };
+
+    window.onclick = (event) => {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    };
+
+    paymentOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        const paymentMethod = option.id;
+        alert(`Redirection vers la page de paiement ${paymentMethod}. Cette fonctionnalité n'est pas encore implémentée.`);
+      });
+    });
+
+    function startLesson(subject, chapter) {
+      const lessonUrl = `https://cours-interactifs-terminale.edu/${subject}/chapitre-${chapter}`;
+      window.location.href = lessonUrl;
+    }
+
+    function startPrep(type) {
+      const prepUrl = `https://cours-interactifs-terminale.edu/prepa-bac/${type}`;
+      window.location.href = prepUrl;
+    }
+  </script>
+</body></html>

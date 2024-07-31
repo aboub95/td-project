@@ -1,0 +1,143 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVT - Chapitre 1: Introduction à l'écologie</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .definition {
+    background-color: #e8f4f8;
+    border-left: 5px solid #3498db;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .example {
+    background-color: #eafaf1;
+    border-left: 5px solid #2ecc71;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .quiz {
+    background-color: #fff9e6;
+    border: 1px solid #ffd700;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+  .quiz h3 {
+    margin-top: 0;
+  }
+  button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  #result {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .next-lesson {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #27ae60;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  .next-lesson:hover {
+    background-color: #2ecc71;
+  }
+</style>
+</head>
+<body>
+  <h1>Chapitre 1: Introduction à l'écologie</h1>
+  
+  <div class="content">
+    <h2>1. Qu'est-ce que l'écologie ?</h2>
+    <p>L'écologie est l'étude des relations entre les organismes vivants et leur environnement. Elle s'intéresse à la manière dont les plantes, les animaux et les autres organismes interagissent entre eux et avec leur milieu.</p>
+    
+    <div class="definition">
+      <strong>Définition :</strong> L'écologie est la science qui étudie les écosystèmes, c'est-à-dire l'ensemble formé par une communauté d'êtres vivants (biocénose) et son environnement (biotope).
+    </div>
+    
+    <h2>2. Les composantes d'un écosystème</h2>
+    <p>Un écosystème est composé de deux éléments principaux :</p>
+    <ul>
+      <li><strong>La biocénose :</strong> l'ensemble des êtres vivants qui coexistent dans un espace défini (le biotope).</li>
+      <li><strong>Le biotope :</strong> le milieu physique dans lequel vivent ces organismes.</li>
+    </ul>
+    
+    <div class="example">
+      <strong>Exemple :</strong> Dans une forêt, la biocénose comprend les arbres, les plantes, les animaux, les champignons et les micro-organismes. Le biotope inclut le sol, l'air, l'eau, la lumière et la température.
+    </div>
+    
+    <h2>3. Les interactions dans un écosystème</h2>
+    <p>Dans un écosystème, les organismes interagissent de différentes manières :</p>
+    <ul>
+      <li>Prédation</li>
+      <li>Compétition</li>
+      <li>Symbiose</li>
+      <li>Parasitisme</li>
+      <li>Commensalisme</li>
+    </ul>
+    
+    <p>Ces interactions forment des réseaux complexes appelés chaînes alimentaires et réseaux trophiques.</p>
+    
+    <h2>4. L'importance de l'écologie</h2>
+    <p>L'écologie est cruciale pour comprendre :</p>
+    <ul>
+      <li>Le fonctionnement des écosystèmes</li>
+      <li>L'impact des activités humaines sur l'environnement</li>
+      <li>La conservation de la biodiversité</li>
+      <li>Les changements climatiques et leurs effets</li>
+    </ul>
+  </div>
+  
+  <div class="quiz">
+    <h3>Quiz rapide</h3>
+    <p>Qu'est-ce qui compose un écosystème ?</p>
+    <button onclick="checkAnswer('a')">a) Biocénose et biotope</button>
+    <button onclick="checkAnswer('b')">b) Faune et flore</button>
+    <button onclick="checkAnswer('c')">c) Sol et eau</button>
+    <p id="result"></p>
+  </div>
+
+  <a href="/cours 6 svt/cours 2 6 svt.html" class="next-lesson">Passer à la leçon suivante</a>
+
+  <script>
+    function checkAnswer(answer) {
+      if (answer === 'a') {
+        document.getElementById('result').innerHTML = "Correct ! Un écosystème est composé de la biocénose (êtres vivants) et du biotope (environnement physique).";
+      } else {
+        document.getElementById('result').innerHTML = "Incorrect. La bonne réponse est a) Biocénose et biotope.";
+      }
+    }
+  </script>
+</body></html>

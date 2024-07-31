@@ -1,0 +1,179 @@
+<html><head><base href="https://cours-interactifs-terminale.edu/svt/genetique-evolution/pratique">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pratique - Génétique et Évolution (Terminale SVT)</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  h1, h2, h3 {
+    color: #2c3e50;
+  }
+  .activity {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .interactive {
+    background-color: #e8f4f8;
+    border-left: 5px solid #3498db;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  img, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+  }
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  #feedback {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+  <h1>Pratique - Génétique et Évolution</h1>
+
+  <div class="activity">
+    <h2>Activité 1 : Simulation de dérive génétique</h2>
+    <p>Cette simulation interactive vous permet d'observer les effets de la dérive génétique sur une petite population.</p>
+    <div class="interactive">
+      <svg id="population-svg" width="400" height="200"></svg>
+      <button onclick="runSimulation()">Lancer la simulation</button>
+      <p>Génération: <span id="generation">0</span></p>
+      <p>Fréquence allèle A: <span id="allele-freq">0.5</span></p>
+    </div>
+    <script>
+      const svg = document.getElementById('population-svg');
+      const genCount = document.getElementById('generation');
+      const freqDisplay = document.getElementById('allele-freq');
+      let population = Array(100).fill().map(() => Math.random() < 0.5 ? 'A' : 'a');
+      let generation = 0;
+
+      function drawPopulation() {
+        svg.innerHTML = '';
+        population.forEach((allele, i) => {
+          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          circle.setAttribute("cx", (i % 10) * 40 + 20);
+          circle.setAttribute("cy", Math.floor(i / 10) * 20 + 10);
+          circle.setAttribute("r", 8);
+          circle.setAttribute("fill", allele === 'A' ? 'blue' : 'red');
+          svg.appendChild(circle);
+        });
+      }
+
+      function runSimulation() {
+        const interval = setInterval(() => {
+          population = population.map(() => {
+            const parent = population[Math.floor(Math.random() * population.length)];
+            return parent;
+          });
+          generation++;
+          genCount.textContent = generation;
+          const freq = population.filter(a => a === 'A').length / population.length;
+          freqDisplay.textContent = freq.toFixed(2);
+          drawPopulation();
+          
+          if (generation >= 20 || freq === 0 || freq === 1) {
+            clearInterval(interval);
+          }
+        }, 500);
+      }
+
+      drawPopulation();
+    </script>
+  </div>
+
+  <div class="activity">
+    <h2>Activité 2 : Analyse d'un arbre phylogénétique</h2>
+    <p>Examinez l'arbre phylogénétique ci-dessous et répondez aux questions.</p>
+    <img alt="Arbre phylogénétique complexe de primates" src="https://example.com/primate_phylogenetic_tree.svg" width="600" height="400">
+    <div class="interactive">
+      <p>Question : Quel est l'ancêtre commun le plus récent des humains et des chimpanzés ?</p>
+      <input type="text" id="ancestor-answer">
+      <button onclick="checkAnswer()">Vérifier</button>
+      <p id="feedback"></p>
+    </div>
+    <script>
+      function checkAnswer() {
+        const answer = document.getElementById('ancestor-answer').value.toLowerCase();
+        const feedback = document.getElementById('feedback');
+        if (answer.includes('hominini') || answer.includes('hominines')) {
+          feedback.textContent = "Correct ! L'ancêtre commun le plus récent des humains et des chimpanzés appartient au clade des Hominini (ou Hominines).";
+          feedback.style.color = 'green';
+        } else {
+          feedback.textContent = "Incorrect. Essayez encore. Indice : Regardez le nœud où les lignées humaine et chimpanzé divergent.";
+          feedback.style.color = 'red';
+        }
+      }
+    </script>
+  </div>
+
+  <div class="activity">
+    <h2>Activité 3 : Mécanismes de spéciation</h2>
+    <p>Explorez les différents mécanismes de spéciation à travers cette activité interactive.</p>
+    <div class="interactive">
+      <h3>Spéciation allopatrique vs. sympatrique</h3>
+      <p>Faites glisser les éléments dans la bonne catégorie :</p>
+      <div id="drag-drop-container" style="display: flex; justify-content: space-around;">
+        <div id="allopatric" style="border: 1px solid #000; padding: 10px; width: 200px; min-height: 100px;">
+          <h4>Allopatrique</h4>
+        </div>
+        <div id="sympatric" style="border: 1px solid #000; padding: 10px; width: 200px; min-height: 100px;">
+          <h4>Sympatrique</h4>
+        </div>
+      </div>
+      <div id="elements" style="margin-top: 20px;">
+        <div class="draggable" draggable="true">Barrière géographique</div>
+        <div class="draggable" draggable="true">Polyploïdie</div>
+        <div class="draggable" draggable="true">Isolement reproductif</div>
+        <div class="draggable" draggable="true">Sélection disruptive</div>
+      </div>
+    </div>
+    <script>
+      const draggables = document.querySelectorAll('.draggable');
+      const containers = document.querySelectorAll('#allopatric, #sympatric');
+
+      draggables.forEach(draggable => {
+        draggable.addEventListener('dragstart', () => {
+          draggable.classList.add('dragging');
+        });
+
+        draggable.addEventListener('dragend', () => {
+          draggable.classList.remove('dragging');
+        });
+      });
+
+      containers.forEach(container => {
+        container.addEventListener('dragover', e => {
+          e.preventDefault();
+          const draggable = document.querySelector('.dragging');
+          container.appendChild(draggable);
+        });
+      });
+    </script>
+  </div>
+
+</body></html>

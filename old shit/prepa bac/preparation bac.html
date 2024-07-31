@@ -1,0 +1,231 @@
+<html><head><base href="https://cours-interactifs-terminale.edu/prepa-bac">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Préparation au Baccalauréat - Terminale</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+  }
+  header {
+    background-color: #e74c3c;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  h2 {
+    color: #e74c3c;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 0.5rem;
+  }
+  .prep-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .prep-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .prep-title {
+    font-weight: bold;
+    color: #2c3e50;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+  }
+  .prep-description {
+    margin-bottom: 1rem;
+  }
+  .start-prep {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .start-prep:hover {
+    background-color: #2980b9;
+  }
+  .locked {
+    opacity: 0.7;
+    position: relative;
+  }
+  .locked::after {
+    content: "🔒";
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+  }
+  .back-btn {
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .back-btn:hover {
+    background-color: #7f8c8d;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .payment-option {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .payment-option:hover {
+    background-color: #f0f0f0;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Préparation au Baccalauréat - Terminale</h1>
+  </header>
+  
+  <main>
+    <a href="/" class="back-btn">Retour au programme de cours</a>
+    
+    <h2>Ressources pour la préparation au Bac</h2>
+    
+    <div class="prep-item">
+      <p class="prep-title">Annales et corrigés</p>
+      <p class="prep-description">Accédez à une sélection d'annales des années précédentes avec leurs corrigés détaillés.</p>
+      <a href="/prepa-bac/annales" class="start-prep">Consulter les annales</a>
+    </div>
+    
+    <div class="prep-item">
+      <p class="prep-title">Fiches de révision</p>
+      <p class="prep-description">Des fiches synthétiques pour réviser efficacement les points clés du programme.</p>
+      <a href="/prepa-bac/fiches" class="start-prep">Voir les fiches</a>
+    </div>
+    
+    <div class="prep-item">
+      <p class="prep-title">Quiz et exercices types</p>
+      <p class="prep-description">Testez vos connaissances avec des quiz interactifs et des exercices types du bac.</p>
+      <a href="/prepa-bac/quiz" class="start-prep">Commencer les exercices</a>
+    </div>
+    
+    <div class="prep-item locked">
+      <p class="prep-title">Méthodologie de l'épreuve</p>
+      <p class="prep-description">Apprenez les techniques pour aborder efficacement les différents types d'épreuves du bac.</p>
+      <button class="start-prep" onclick="showPaymentModal('Méthodologie de l'épreuve')">Débloquer</button>
+    </div>
+    
+    <div class="prep-item locked">
+      <p class="prep-title">Simulations d'oraux</p>
+      <p class="prep-description">Préparez-vous aux épreuves orales avec des simulations et des conseils d'experts.</p>
+      <button class="start-prep" onclick="showPaymentModal('Simulations d\'oraux')">Débloquer</button>
+    </div>
+    
+    <div class="prep-item locked">
+      <p class="prep-title">Planning de révision personnalisé</p>
+      <p class="prep-description">Obtenez un planning de révision sur mesure pour optimiser votre préparation au bac.</p>
+      <button class="start-prep" onclick="showPaymentModal('Planning de révision personnalisé')">Débloquer</button>
+    </div>
+  </main>
+
+  <div id="paymentModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Choisissez votre mode de paiement</h2>
+      <p>Pour débloquer <span id="contentTitle"></span>, veuillez choisir un mode de paiement :</p>
+      <div class="payment-option" onclick="processPayment('Airtel Money')">
+        <h3>Airtel Money</h3>
+        <p>Payez facilement avec votre compte Airtel Money</p>
+      </div>
+      <div class="payment-option" onclick="processPayment('Moov Money')">
+        <h3>Moov Money</h3>
+        <p>Utilisez votre compte Moov Money pour un paiement rapide</p>
+      </div>
+      <div class="payment-option" onclick="processPayment('Carte Bancaire')">
+        <h3>Carte Bancaire</h3>
+        <p>Paiement sécurisé par carte bancaire</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var modal = document.getElementById("paymentModal");
+    var span = document.getElementsByClassName("close")[0];
+    var contentTitleSpan = document.getElementById("contentTitle");
+
+    function showPaymentModal(contentTitle) {
+      modal.style.display = "block";
+      contentTitleSpan.textContent = contentTitle;
+    }
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    function processPayment(method) {
+      alert("Traitement du paiement via " + method + ". Redirection vers la passerelle de paiement...");
+      // Ici, vous implémenteriez la logique réelle de paiement
+      modal.style.display = "none";
+    }
+  </script>
+</body></html>

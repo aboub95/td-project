@@ -1,0 +1,140 @@
+<html><head><base href="https://cours-interactifs-6eme.edu/maths/chapitre-3">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mathématiques 6ème - Chapitre 3: Introduction aux fractions</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .fraction {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.2em;
+  }
+  .fraction > span {
+    display: block;
+  }
+  .fraction > span:first-child {
+    border-bottom: 1px solid #000;
+  }
+  .example {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  .interactive {
+    background-color: #e6f3ff;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+  }
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  #result {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .next-lesson {
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 1.1em;
+    background-color: #2ecc71;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  .next-lesson:hover {
+    background-color: #27ae60;
+  }
+</style>
+</head>
+<body>
+  <h1>Chapitre 3: Introduction aux fractions</h1>
+  
+  <h2>1. Qu'est-ce qu'une fraction ?</h2>
+  <p>Une fraction est une façon d'exprimer une partie d'un tout. Elle est composée de deux nombres :</p>
+  <ul>
+    <li>Le <strong>numérateur</strong> (en haut) qui indique combien de parts on prend</li>
+    <li>Le <strong>dénominateur</strong> (en bas) qui indique en combien de parts égales le tout est divisé</li>
+  </ul>
+  
+  <div class="example">
+    <p>Exemple : <div class="fraction"><span>3</span><span>4</span></div> (trois quarts)</p>
+    <p>Ici, le tout est divisé en 4 parts égales, et on en prend 3.</p>
+  </div>
+
+  <h2>2. Les fractions dans la vie quotidienne</h2>
+  <p>Les fractions sont partout autour de nous :</p>
+  <ul>
+    <li>Dans les recettes de cuisine (ex: <div class="fraction"><span>1</span><span>2</span></div> tasse de sucre)</li>
+    <li>Dans les mesures (ex: <div class="fraction"><span>3</span><span>4</span></div> d'heure = 45 minutes)</li>
+    <li>Dans les statistiques (ex: <div class="fraction"><span>1</span><span>3</span></div> des élèves préfèrent les maths)</li>
+  </ul>
+
+  <h2>3. Comment comparer des fractions</h2>
+  <p>Pour comparer des fractions avec le même dénominateur, on compare simplement les numérateurs :</p>
+  <div class="example">
+    <p><div class="fraction"><span>3</span><span>5</span></div> est plus grand que <div class="fraction"><span>2</span><span>5</span></div> car 3 > 2</p>
+  </div>
+
+  <h2>4. Addition et soustraction de fractions</h2>
+  <p>Quand les dénominateurs sont les mêmes, on ajoute ou soustrait simplement les numérateurs :</p>
+  <div class="example">
+    <p><div class="fraction"><span>1</span><span>4</span></div> + <div class="fraction"><span>2</span><span>4</span></div> = <div class="fraction"><span>3</span><span>4</span></div></p>
+  </div>
+
+  <h2>5. Exercice interactif</h2>
+  <div class="interactive">
+    <p>Essayez d'additionner ces fractions :</p>
+    <div class="fraction"><span>1</span><span>3</span></div> + <div class="fraction"><span>1</span><span>3</span></div> = ?
+    <br><br>
+    <button onclick="checkAnswer()">Vérifier ma réponse</button>
+    <div id="result"></div>
+  </div>
+
+  <a href="#" class="next-lesson" onclick="nextLesson()">Leçon suivante</a>
+
+  <script>
+    function checkAnswer() {
+      let answer = prompt("Entrez votre réponse sous la forme 'a/b' (par exemple, 2/3):");
+      let result = document.getElementById('result');
+      
+      if (answer === "2/3") {
+        result.innerHTML = "Correct ! Bien joué !";
+        result.style.color = "green";
+      } else {
+        result.innerHTML = "Pas tout à fait. Essayez encore !";
+        result.style.color = "red";
+      }
+    }
+
+    function nextLesson() {
+      alert("Vous allez passer à la leçon suivante. Cette fonctionnalité n'est pas encore implémentée.");
+      // Ici, vous pouvez ajouter le code pour rediriger vers la prochaine leçon
+      // Par exemple : window.location.href = "https://cours-interactifs-6eme.edu/maths/chapitre-4";
+    }
+  </script>
+</body></html>

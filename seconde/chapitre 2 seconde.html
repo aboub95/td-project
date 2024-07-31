@@ -1,0 +1,279 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVT Seconde - Chapitre 2: Les conditions de la vie sur Terre</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .section {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .interactive {
+    background-color: #e8f4f8;
+    border: 1px solid #b8d4e3;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  .quiz {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  #earthLayers {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  .layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  #atmosphere {
+    background-color: #87CEEB;
+    transform: scale(1);
+  }
+  #crust {
+    background-color: #8B4513;
+    transform: scale(0.98);
+  }
+  #mantle {
+    background-color: #FF4500;
+    transform: scale(0.7);
+  }
+  #outerCore {
+    background-color: #FFA500;
+    transform: scale(0.4);
+  }
+  #innerCore {
+    background-color: #FFD700;
+    transform: scale(0.2);
+  }
+</style>
+</head><body>
+  <h1>Chapitre 2: Les conditions de la vie sur Terre</h1>
+
+  <div class="section">
+    <h2>1. La structure de la Terre</h2>
+    <p>La Terre est composée de plusieurs couches distinctes, chacune ayant des propriétés uniques qui contribuent à rendre notre planète habitable.</p>
+    <div class="interactive">
+      <h3>Exploration interactive : Les couches de la Terre</h3>
+      <p>Cliquez sur les boutons pour explorer les différentes couches de la Terre.</p>
+      <div id="earthLayers">
+        <div id="atmosphere" class="layer"></div>
+        <div id="crust" class="layer"></div>
+        <div id="mantle" class="layer"></div>
+        <div id="outerCore" class="layer"></div>
+        <div id="innerCore" class="layer"></div>
+      </div>
+      <button onclick="showLayer('atmosphere')">Atmosphère</button>
+      <button onclick="showLayer('crust')">Croûte</button>
+      <button onclick="showLayer('mantle')">Manteau</button>
+      <button onclick="showLayer('outerCore')">Noyau externe</button>
+      <button onclick="showLayer('innerCore')">Noyau interne</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. L'atmosphère terrestre</h2>
+    <p>L'atmosphère terrestre joue un rôle crucial dans le maintien de la vie sur Terre. Elle protège la surface des rayonnements nocifs et régule la température.</p>
+    <div class="interactive">
+      <h3>Simulation : Effet de serre</h3>
+      <p>Ajustez la concentration de CO2 pour observer l'effet sur la température moyenne de la Terre.</p>
+      <input type="range" id="co2Slider" min="0" max="1000" value="400">
+      <p>Concentration de CO2 (ppm): <span id="co2Value">400</span></p>
+      <p>Température moyenne: <span id="tempValue">15</span>°C</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. L'eau sur Terre</h2>
+    <p>L'eau est essentielle à la vie telle que nous la connaissons. La Terre est la seule planète connue avec de l'eau liquide stable à sa surface.</p>
+    <div class="interactive">
+      <h3>Quiz : Le cycle de l'eau</h3>
+      <div id="waterQuiz"></div>
+      <button onclick="checkWaterQuiz()">Vérifier les réponses</button>
+      <div id="waterQuizResult"></div>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h2>Quiz récapitulatif</h2>
+    <div id="quizQuestion"></div>
+    <div id="quizOptions"></div>
+    <button onclick="checkAnswer()">Vérifier la réponse</button>
+    <div id="quizResult"></div>
+  </div>
+
+  <div class="navigation">
+    <a href="/seconde/chapitre 1 seconde.html"><button>Chapitre précédent</button></a>
+    <a href="/seconde/programme seconde.html"><button>Retour aux programmes</button></a>
+    <a href="https://cours-interactifs-seconde.edu/svt/chapitre-3"><button>Chapitre suivant</button></a>
+  </div>
+
+  <script>
+    // Exploration des couches de la Terre
+    function showLayer(layerId) {
+      const layers = ['atmosphere', 'crust', 'mantle', 'outerCore', 'innerCore'];
+      layers.forEach(layer => {
+        const elem = document.getElementById(layer);
+        if (layer === layerId) {
+          elem.style.transform = 'scale(1)';
+        } else {
+          elem.style.transform = `scale(${0.2 + layers.indexOf(layer) * 0.2})`;
+        }
+      });
+    }
+
+    // Simulation de l'effet de serre
+    const co2Slider = document.getElementById('co2Slider');
+    const co2Value = document.getElementById('co2Value');
+    const tempValue = document.getElementById('tempValue');
+
+    co2Slider.addEventListener('input', updateTemperature);
+
+    function updateTemperature() {
+      const co2 = parseInt(co2Slider.value);
+      co2Value.textContent = co2;
+      const baseTemp = 15;
+      const tempIncrease = (co2 - 400) / 100;
+      const newTemp = baseTemp + tempIncrease;
+      tempValue.textContent = newTemp.toFixed(1);
+    }
+
+    // Quiz sur le cycle de l'eau
+    const waterQuizQuestions = [
+      {
+        question: "Quel processus transforme l'eau liquide en vapeur d'eau ?",
+        options: ["Évaporation", "Condensation", "Précipitation"],
+        correct: 0
+      },
+      {
+        question: "Comment appelle-t-on le processus par lequel l'eau passe directement de l'état solide à l'état gazeux ?",
+        options: ["Fusion", "Sublimation", "Congélation"],
+        correct: 1
+      },
+      {
+        question: "Quel pourcentage approximatif de la surface terrestre est recouvert d'eau ?",
+        options: ["50%", "60%", "70%"],
+        correct: 2
+      }
+    ];
+
+    function displayWaterQuiz() {
+      let quizHtml = '';
+      waterQuizQuestions.forEach((q, index) => {
+        quizHtml += `<p>${q.question}</p>`;
+        q.options.forEach((option, optionIndex) => {
+          quizHtml += `<input type="radio" name="q${index}" value="${optionIndex}"> ${option}<br>`;
+        });
+      });
+      document.getElementById('waterQuiz').innerHTML = quizHtml;
+    }
+
+    function checkWaterQuiz() {
+      let score = 0;
+      waterQuizQuestions.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected && parseInt(selected.value) === q.correct) {
+          score++;
+        }
+      });
+      document.getElementById('waterQuizResult').innerHTML = `Vous avez obtenu ${score} sur ${waterQuizQuestions.length} bonnes réponses.`;
+    }
+
+    displayWaterQuiz();
+
+    // Quiz récapitulatif
+    const quizQuestions = [
+      {
+        question: "Quelle couche de la Terre est responsable du champ magnétique terrestre ?",
+        options: ["Croûte", "Manteau", "Noyau externe"],
+        correctAnswer: 2
+      },
+      {
+        question: "Quel gaz est principalement responsable de l'effet de serre ?",
+        options: ["Oxygène", "Azote", "Dioxyde de carbone"],
+        correctAnswer: 2
+      },
+      {
+        question: "Quelle propriété unique de l'eau la rend essentielle à la vie ?",
+        options: ["Sa couleur", "Sa capacité à exister sous trois états", "Son goût"],
+        correctAnswer: 1
+      }
+    ];
+
+    let currentQuestion = 0;
+
+    function displayQuestion() {
+      let question = quizQuestions[currentQuestion];
+      document.getElementById('quizQuestion').innerHTML = question.question;
+      let optionsHtml = '';
+      question.options.forEach((option, index) => {
+        optionsHtml += `<input type="radio" name="quizOption" value="${index}"> ${option}<br>`;
+      });
+      document.getElementById('quizOptions').innerHTML = optionsHtml;
+    }
+
+    function checkAnswer() {
+      let selectedOption = document.querySelector('input[name="quizOption"]:checked');
+      if (selectedOption) {
+        let answer = parseInt(selectedOption.value);
+        let question = quizQuestions[currentQuestion];
+        if (answer === question.correctAnswer) {
+          document.getElementById('quizResult').innerHTML = 'Correct !';
+        } else {
+          document.getElementById('quizResult').innerHTML = 'Incorrect. La bonne réponse était : ' + question.options[question.correctAnswer];
+        }
+        currentQuestion++;
+        if (currentQuestion < quizQuestions.length) {
+          setTimeout(displayQuestion, 2000);
+        } else {
+          document.getElementById('quizResult').innerHTML += '<br>Quiz terminé !';
+        }
+      } else {
+        document.getElementById('quizResult').innerHTML = 'Veuillez sélectionner une réponse.';
+      }
+    }
+
+    displayQuestion();
+  </script>
+</body></html>

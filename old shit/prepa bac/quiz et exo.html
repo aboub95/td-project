@@ -1,0 +1,300 @@
+<html><head><base href="https://cours-interactifs-terminale.edu/prepa-bac/quiz">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz et Exercices Types - Préparation au Baccalauréat</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+  }
+  header {
+    background-color: #e74c3c;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  h2 {
+    color: #e74c3c;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 0.5rem;
+  }
+  .quiz-section {
+    margin-bottom: 2rem;
+  }
+  .quiz-item {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+  .quiz-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .quiz-title {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+  }
+  .quiz-description {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+  }
+  .start-quiz {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  .start-quiz:hover {
+    background-color: #2980b9;
+  }
+  .back-btn {
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .back-btn:hover {
+    background-color: #7f8c8d;
+  }
+  #quiz-container {
+    display: none;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  .question {
+    margin-bottom: 15px;
+  }
+  .options {
+    list-style-type: none;
+    padding: 0;
+  }
+  .option {
+    background-color: #fff;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .option:hover {
+    background-color: #e0e0e0;
+  }
+  .selected {
+    background-color: #3498db;
+    color: white;
+  }
+  #submit-quiz {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-top: 20px;
+  }
+  #submit-quiz:hover {
+    background-color: #27ae60;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Quiz et Exercices Types - Préparation au Baccalauréat</h1>
+  </header>
+  
+  <main>
+    <a href="/prepa-bac" class="back-btn">Retour à la préparation Bac</a>
+    
+    <section class="quiz-section">
+      <h2>SVT</h2>
+      <div class="quiz-item">
+        <p class="quiz-title">Génétique et Évolution</p>
+        <p class="quiz-description">Testez vos connaissances sur les concepts clés de la génétique et de l'évolution.</p>
+        <button class="start-quiz" onclick="startQuiz('svt-genetique')">Commencer le quiz</button>
+      </div>
+      <div class="quiz-item">
+        <p class="quiz-title">Écosystèmes et Environnement</p>
+        <p class="quiz-description">Évaluez votre compréhension des écosystèmes et des enjeux environnementaux.</p>
+        <button class="start-quiz" onclick="startQuiz('svt-ecosystemes')">Commencer le quiz</button>
+      </div>
+    </section>
+
+    <section class="quiz-section">
+      <h2>Physique-Chimie</h2>
+      <div class="quiz-item">
+        <p class="quiz-title">Mécanique Newtonienne</p>
+        <p class="quiz-description">Mettez à l'épreuve vos connaissances sur les lois de Newton et la mécanique.</p>
+        <button class="start-quiz" onclick="startQuiz('pc-mecanique')">Commencer le quiz</button>
+      </div>
+      <div class="quiz-item">
+        <p class="quiz-title">Chimie Organique</p>
+        <p class="quiz-description">Testez-vous sur les fonctions organiques et les mécanismes réactionnels.</p>
+        <button class="start-quiz" onclick="startQuiz('pc-chimie-organique')">Commencer le quiz</button>
+      </div>
+    </section>
+
+    <section class="quiz-section">
+      <h2>Mathématiques</h2>
+      <div class="quiz-item">
+        <p class="quiz-title">Analyse : Limites et Dérivées</p>
+        <p class="quiz-description">Évaluez votre maîtrise des concepts d'analyse mathématique.</p>
+        <button class="start-quiz" onclick="startQuiz('maths-analyse')">Commencer le quiz</button>
+      </div>
+      <div class="quiz-item">
+        <p class="quiz-title">Probabilités et Statistiques</p>
+        <p class="quiz-description">Testez vos compétences en probabilités et en analyse statistique.</p>
+        <button class="start-quiz" onclick="startQuiz('maths-proba-stats')">Commencer le quiz</button>
+      </div>
+    </section>
+
+    <div id="quiz-container"></div>
+  </main>
+
+  <script>
+    const quizData = {
+      'svt-genetique': [
+        {
+          question: "Quel scientifique est considéré comme le 'père de la génétique' ?",
+          options: ["Charles Darwin", "Gregor Mendel", "James Watson", "Francis Crick"],
+          answer: 1
+        },
+        {
+          question: "Qu'est-ce qu'un allèle ?",
+          options: ["Un type de chromosome", "Une version alternative d'un gène", "Une protéine", "Un type de cellule"],
+          answer: 1
+        },
+        {
+          question: "Quel processus permet la production de gamètes ?",
+          options: ["Mitose", "Méiose", "Fécondation", "Réplication"],
+          answer: 1
+        }
+      ],
+      'pc-mecanique': [
+        {
+          question: "Quelle est la deuxième loi de Newton ?",
+          options: ["F = ma", "E = mc²", "P = mv", "F = -kx"],
+          answer: 0
+        },
+        {
+          question: "Quelle est l'unité de mesure de la force dans le système international ?",
+          options: ["Joule", "Watt", "Newton", "Pascal"],
+          answer: 2
+        },
+        {
+          question: "Quel type de mouvement décrit un objet soumis à une force constante ?",
+          options: ["Mouvement rectiligne uniforme", "Mouvement circulaire uniforme", "Mouvement rectiligne uniformément accéléré", "Mouvement harmonique simple"],
+          answer: 2
+        }
+      ],
+      'maths-analyse': [
+        {
+          question: "Quelle est la dérivée de f(x) = x² ?",
+          options: ["f'(x) = x", "f'(x) = 2x", "f'(x) = 2", "f'(x) = x²"],
+          answer: 1
+        },
+        {
+          question: "Quelle est la limite de (sin x) / x quand x tend vers 0 ?",
+          options: ["0", "1", "∞", "Indéterminée"],
+          answer: 1
+        },
+        {
+          question: "Quelle est la règle pour dériver un produit de fonctions ?",
+          options: ["(fg)' = f'g'", "(fg)' = f'g + fg'", "(fg)' = f'g - fg'", "(fg)' = (f'g')/(f+g)"],
+          answer: 1
+        }
+      ]
+    };
+
+    function startQuiz(quizId) {
+      const quizContainer = document.getElementById('quiz-container');
+      quizContainer.innerHTML = '';
+      quizContainer.style.display = 'block';
+
+      const quiz = quizData[quizId];
+      quiz.forEach((question, index) => {
+        const questionElement = document.createElement('div');
+        questionElement.classList.add('question');
+        questionElement.innerHTML = `
+          <p><strong>Question ${index + 1}:</strong> ${question.question}</p>
+          <ul class="options">
+            ${question.options.map((option, optionIndex) => `
+              <li class="option" data-index="${optionIndex}">${option}</li>
+            `).join('')}
+          </ul>
+        `;
+        quizContainer.appendChild(questionElement);
+      });
+
+      const submitButton = document.createElement('button');
+      submitButton.id = 'submit-quiz';
+      submitButton.textContent = 'Soumettre le quiz';
+      submitButton.addEventListener('click', () => checkAnswers(quizId));
+      quizContainer.appendChild(submitButton);
+
+      // Add event listeners to options
+      const options = quizContainer.querySelectorAll('.option');
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+          const questionElement = option.closest('.question');
+          questionElement.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+          option.classList.add('selected');
+        });
+      });
+    }
+
+    function checkAnswers(quizId) {
+      const quiz = quizData[quizId];
+      const questions = document.querySelectorAll('.question');
+      let score = 0;
+
+      questions.forEach((question, index) => {
+        const selectedOption = question.querySelector('.option.selected');
+        if (selectedOption) {
+          const selectedAnswer = parseInt(selectedOption.dataset.index);
+          if (selectedAnswer === quiz[index].answer) {
+            score++;
+            selectedOption.style.backgroundColor = '#2ecc71';
+          } else {
+            selectedOption.style.backgroundColor = '#e74c3c';
+            question.querySelectorAll('.option')[quiz[index].answer].style.backgroundColor = '#2ecc71';
+          }
+        }
+      });
+
+      alert(`Vous avez obtenu ${score} sur ${quiz.length} !`);
+    }
+  </script>
+</body></html>

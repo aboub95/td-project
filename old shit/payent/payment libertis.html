@@ -1,0 +1,124 @@
+<html><head><base href="https://cours-interactifs-6eme.edu/paiement-securise?method=moov&plan=mensuel">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paiement Sécurisé - Moov Money</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+  }
+  header {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  main {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  .btn {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  .btn:hover {
+    background-color: #27ae60;
+  }
+  .security-notice {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #7f8c8d;
+  }
+  @media (max-width: 768px) {
+    main {
+      padding: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Paiement Sécurisé - Moov Money</h1>
+  </header>
+
+  <main>
+    <h2>Détails du paiement</h2>
+    <p><strong>Plan :</strong> Abonnement Mensuel</p>
+    <p><strong>Montant :</strong> 5000 FCFA</p>
+
+    <form class="payment-form" onsubmit="return processPayment(event)">
+      <div class="form-group">
+        <label for="phone">Numéro de téléphone Moov :</label>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9]{8}" placeholder="Exemple: 01234567">
+      </div>
+      <div class="form-group">
+        <label for="otp">Code OTP :</label>
+        <input type="text" id="otp" name="otp" required pattern="[0-9]{6}" placeholder="Exemple: 123456">
+      </div>
+      <button type="submit" class="btn">Payer 5000 FCFA</button>
+    </form>
+
+    <p class="security-notice">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+      </svg>
+      Vos informations de paiement sont sécurisées et cryptées.
+    </p>
+  </main>
+
+  <script>
+    function processPayment(event) {
+      event.preventDefault();
+      const phone = document.getElementById('phone').value;
+      const otp = document.getElementById('otp').value;
+
+      // Simuler le traitement du paiement
+      alert(`Paiement en cours de traitement pour le numéro ${phone} avec le code OTP ${otp}`);
+
+      // Redirection vers une page de confirmation fictive après 2 secondes
+      setTimeout(() => {
+        window.location.href = 'https://cours-interactifs-6eme.edu/confirmation-paiement';
+      }, 2000);
+
+      return false;
+    }
+  </script>
+</body></html>

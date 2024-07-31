@@ -1,0 +1,289 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVT - Chapitre 1: La Terre dans l'Univers, la vie et l'évolution du vivant</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .section {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .interactive {
+    background-color: #e8f4f8;
+    border: 1px solid #b8d4e3;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  .quiz, .drag-drop {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  .quiz-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .quiz-options {
+    list-style-type: none;
+    padding: 0;
+  }
+  .quiz-options li {
+    margin-bottom: 5px;
+  }
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .draggable {
+    cursor: move;
+    padding: 5px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 3px;
+    margin: 5px;
+    display: inline-block;
+  }
+  .droppable {
+    border: 2px dashed #3498db;
+    padding: 10px;
+    min-height: 50px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+  <h1>Chapitre 1: La Terre dans l'Univers, la vie et l'évolution du vivant</h1>
+  
+  <div class="section">
+    <h2>Vidéo résumé du cours</h2>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEOID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Introduction à l'Univers</h2>
+    <p>L'Univers est vaste et ancien, estimé à environ 13,8 milliards d'années. Il contient des milliards de galaxies, chacune composée de milliards d'étoiles. Notre galaxie, la Voie Lactée, est l'une d'entre elles.</p>
+    
+    <div class="interactive">
+      <h3>Animation interactive : Échelle de l'Univers</h3>
+      <p>Utilisez le curseur pour explorer les différentes échelles de l'Univers, de l'infiniment petit à l'infiniment grand.</p>
+      <input type="range" min="1" max="100" value="50" id="universeScale">
+      <div id="scaleDescription">Échelle actuelle : Système solaire</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. La formation de la Terre</h2>
+    <p>La Terre s'est formée il y a environ 4,6 milliards d'années, à partir de la nébuleuse solaire primordiale. Au cours de sa formation, la Terre a connu plusieurs étapes cruciales :</p>
+    <ul>
+      <li>Accrétion de matière</li>
+      <li>Différenciation des couches internes</li>
+      <li>Formation de l'atmosphère primitive</li>
+      <li>Apparition des océans</li>
+    </ul>
+
+    <div class="drag-drop">
+      <h3>Activité : Ordre chronologique de la formation de la Terre</h3>
+      <p>Glissez et déposez les événements dans l'ordre chronologique correct :</p>
+      <div id="draggables">
+        <div class="draggable" draggable="true">Formation de l'atmosphère primitive</div>
+        <div class="draggable" draggable="true">Accrétion de matière</div>
+        <div class="draggable" draggable="true">Apparition des océans</div>
+        <div class="draggable" draggable="true">Différenciation des couches internes</div>
+      </div>
+      <div class="droppable" id="timeline"></div>
+      <button onclick="checkTimeline()">Vérifier l'ordre</button>
+      <div id="timelineResult"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. L'apparition de la vie</h2>
+    <p>Les premières formes de vie sont apparues sur Terre il y a environ 3,8 milliards d'années. Les conditions nécessaires à l'émergence de la vie comprennent :</p>
+    <ul>
+      <li>La présence d'eau liquide</li>
+      <li>Une atmosphère protectrice</li>
+      <li>Des molécules organiques complexes</li>
+      <li>Une source d'énergie (chimique ou solaire)</li>
+    </ul>
+
+    <div class="interactive">
+      <h3>Expérience virtuelle : Création de protocellules</h3>
+      <p>Combinez différents éléments pour créer des protocellules, les précurseurs des cellules vivantes.</p>
+      <button onclick="startExperiment()">Commencer l'expérience</button>
+      <div id="experimentResult"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. L'évolution du vivant</h2>
+    <p>L'évolution est le processus par lequel les espèces vivantes se transforment au fil du temps. Les mécanismes principaux de l'évolution sont :</p>
+    <ul>
+      <li>La sélection naturelle</li>
+      <li>Les mutations génétiques</li>
+      <li>La dérive génétique</li>
+      <li>Les flux de gènes</li>
+    </ul>
+
+    <div class="quiz">
+      <h3>Quiz : Mécanismes de l'évolution</h3>
+      <div class="quiz-question">
+        Quel mécanisme de l'évolution est responsable de la survie des individus les mieux adaptés à leur environnement ?
+      </div>
+      <ul class="quiz-options">
+        <li><input type="radio" name="evolution" value="selection"> La sélection naturelle</li>
+        <li><input type="radio" name="evolution" value="mutation"> Les mutations génétiques</li>
+        <li><input type="radio" name="evolution" value="derive"> La dérive génétique</li>
+        <li><input type="radio" name="evolution" value="flux"> Les flux de gènes</li>
+      </ul>
+      <button onclick="checkEvolutionAnswer()">Vérifier la réponse</button>
+      <div id="evolutionQuizResult"></div>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz final</h3>
+    <div class="quiz-question">
+      Quelle est l'âge approximatif de la Terre ?
+    </div>
+    <ul class="quiz-options">
+      <li><input type="radio" name="age" value="2"> 2 milliards d'années</li>
+      <li><input type="radio" name="age" value="4.6"> 4,6 milliards d'années</li>
+      <li><input type="radio" name="age" value="13.8"> 13,8 milliards d'années</li>
+    </ul>
+    <button onclick="checkAnswer()">Vérifier la réponse</button>
+    <div id="quizResult"></div>
+  </div>
+  <div class="navigation">
+    <a href="/seconde/chapitre 1 seconde.html"><button>Chapitre précédent</button></a>
+    <a href="/seconde/programme seconde.html"><button>Retour aux programmes</button></a>
+    <a href="https://cours-interactifs-seconde.edu/svt/chapitre-3"><button>Chapitre suivant</button></a>
+  </div>
+
+
+  <script>
+    function startExperiment() {
+      const results = ["Vous avez créé une protocellule simple!", "L'expérience a échoué, essayez à nouveau.", "Félicitations! Vous avez créé une protocellule complexe!"];
+      const randomResult = results[Math.floor(Math.random() * results.length)];
+      document.getElementById('experimentResult').innerHTML = randomResult;
+    }
+
+    function checkAnswer() {
+      const selectedAnswer = document.querySelector('input[name="age"]:checked');
+      if (selectedAnswer) {
+        if (selectedAnswer.value === "4.6") {
+          document.getElementById('quizResult').innerHTML = "Correct! La Terre a environ 4,6 milliards d'années.";
+        } else {
+          document.getElementById('quizResult').innerHTML = "Incorrect. La Terre a environ 4,6 milliards d'années.";
+        }
+      } else {
+        document.getElementById('quizResult').innerHTML = "Veuillez sélectionner une réponse.";
+      }
+    }
+
+    function checkEvolutionAnswer() {
+      const selectedAnswer = document.querySelector('input[name="evolution"]:checked');
+      if (selectedAnswer) {
+        if (selectedAnswer.value === "selection") {
+          document.getElementById('evolutionQuizResult').innerHTML = "Correct! La sélection naturelle est responsable de la survie des individus les mieux adaptés.";
+        } else {
+          document.getElementById('evolutionQuizResult').innerHTML = "Incorrect. La bonne réponse est la sélection naturelle.";
+        }
+      } else {
+        document.getElementById('evolutionQuizResult').innerHTML = "Veuillez sélectionner une réponse.";
+      }
+    }
+
+    document.getElementById('universeScale').addEventListener('input', function() {
+      const scale = this.value;
+      let description;
+      if (scale < 20) {
+        description = "Échelle atomique";
+      } else if (scale < 40) {
+        description = "Échelle cellulaire";
+      } else if (scale < 60) {
+        description = "Échelle planétaire";
+      } else if (scale < 80) {
+        description = "Échelle stellaire";
+      } else {
+        description = "Échelle galactique";
+      }
+      document.getElementById('scaleDescription').innerHTML = `Échelle actuelle : ${description}`;
+    });
+
+    // Drag and drop functionality
+    const draggables = document.querySelectorAll('.draggable');
+    const droppables = document.querySelectorAll('.droppable');
+
+    draggables.forEach(draggable => {
+      draggable.addEventListener('dragstart', () => {
+        draggable.classList.add('dragging');
+      });
+
+      draggable.addEventListener('dragend', () => {
+        draggable.classList.remove('dragging');
+      });
+    });
+
+    droppables.forEach(droppable => {
+      droppable.addEventListener('dragover', e => {
+        e.preventDefault();
+        const draggable = document.querySelector('.dragging');
+        droppable.appendChild(draggable);
+      });
+    });
+
+    function checkTimeline() {
+      const timeline = document.getElementById('timeline');
+      const correctOrder = ['Accrétion de matière', 'Différenciation des couches internes', 'Formation de l\'atmosphère primitive', 'Apparition des océans'];
+      const currentOrder = Array.from(timeline.children).map(item => item.textContent);
+      
+      if (JSON.stringify(currentOrder) === JSON.stringify(correctOrder)) {
+        document.getElementById('timelineResult').innerHTML = "Correct! Vous avez placé les événements dans le bon ordre.";
+      } else {
+        document.getElementById('timelineResult').innerHTML = "Incorrect. Essayez à nouveau de placer les événements dans l'ordre chronologique correct.";
+      }
+    }
+  </script>
+</body></html>

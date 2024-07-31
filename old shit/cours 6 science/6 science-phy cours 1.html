@@ -1,0 +1,163 @@
+<html><head><base href="https://cours-interactifs-6eme.edu/physique/chapitre-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 1: Les états de la matière - Sciences Physiques 6ème</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    h1, h2 {
+        color: #2c3e50;
+    }
+    .content-box {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .experiment {
+        background-color: #e8f4f8;
+        border-left: 5px solid #3498db;
+        padding: 15px;
+        margin-top: 20px;
+    }
+    .quiz {
+        background-color: #f8e8e8;
+        border-left: 5px solid #e74c3c;
+        padding: 15px;
+        margin-top: 20px;
+    }
+    button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #2980b9;
+    }
+    .hidden {
+        display: none;
+    }
+    #quizResults {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .next-lesson {
+        display: block;
+        width: 200px;
+        margin: 20px auto;
+        text-align: center;
+        background-color: #27ae60;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+    .next-lesson:hover {
+        background-color: #2ecc71;
+    }
+</style>
+</head>
+<body>
+    <h1>Chapitre 1: Les états de la matière</h1>
+    
+    <div class="content-box">
+        <h2>Introduction</h2>
+        <p>La matière qui nous entoure peut exister sous différentes formes appelées états. Dans ce chapitre, nous allons explorer les trois états fondamentaux de la matière : solide, liquide et gazeux.</p>
+    </div>
+    
+    <div class="content-box">
+        <h2>1. L'état solide</h2>
+        <p>Les solides ont une forme et un volume définis. Les particules dans un solide sont étroitement liées et vibrent sur place.</p>
+        <p>Exemples : glace, bois, métal</p>
+    </div>
+    
+    <div class="content-box">
+        <h2>2. L'état liquide</h2>
+        <p>Les liquides ont un volume défini mais prennent la forme de leur contenant. Les particules dans un liquide sont moins liées que dans un solide et peuvent se déplacer les unes par rapport aux autres.</p>
+        <p>Exemples : eau, huile, lait</p>
+    </div>
+    
+    <div class="content-box">
+        <h2>3. L'état gazeux</h2>
+        <p>Les gaz n'ont ni forme ni volume définis. Ils occupent tout l'espace disponible. Les particules dans un gaz sont très éloignées les unes des autres et se déplacent rapidement dans toutes les directions.</p>
+        <p>Exemples : air, vapeur d'eau, hélium</p>
+    </div>
+    
+    <div class="experiment">
+        <h2>Expérience : Changements d'état de l'eau</h2>
+        <p>Matériel nécessaire : glaçons, verre, source de chaleur (attention à la sécurité !)</p>
+        <ol>
+            <li>Placez des glaçons dans un verre (état solide)</li>
+            <li>Observez la fusion des glaçons en eau liquide (état liquide)</li>
+            <li>Chauffez l'eau jusqu'à ébullition pour observer la vapeur (état gazeux)</li>
+        </ol>
+        <p>Cette expérience montre comment une même substance (l'eau) peut exister sous les trois états de la matière.</p>
+    </div>
+    
+    <div class="quiz">
+        <h2>Quiz rapide</h2>
+        <p>1. Quel état de la matière a une forme et un volume définis ?</p>
+        <button onclick="checkAnswer(1, 'a')">a) Solide</button>
+        <button onclick="checkAnswer(1, 'b')">b) Liquide</button>
+        <button onclick="checkAnswer(1, 'c')">c) Gazeux</button>
+        
+        <p>2. Dans quel état les particules sont-elles les plus éloignées les unes des autres ?</p>
+        <button onclick="checkAnswer(2, 'a')">a) Solide</button>
+        <button onclick="checkAnswer(2, 'b')">b) Liquide</button>
+        <button onclick="checkAnswer(2, 'c')">c) Gazeux</button>
+        
+        <p>3. Quel est l'état de la matière de l'eau à température ambiante ?</p>
+        <button onclick="checkAnswer(3, 'a')">a) Solide</button>
+        <button onclick="checkAnswer(3, 'b')">b) Liquide</button>
+        <button onclick="checkAnswer(3, 'c')">c) Gazeux</button>
+        
+        <div id="quizResults" class="hidden"></div>
+    </div>
+
+    <a href="https://cours-interactifs-6eme.edu/physique/chapitre-2" class="next-lesson">Leçon suivante</a>
+
+    <script>
+        let score = 0;
+        const answers = {1: 'a', 2: 'c', 3: 'b'};
+        
+        function checkAnswer(question, answer) {
+            if (answer === answers[question]) {
+                score++;
+            }
+            if (question === 3) {
+                showResults();
+            }
+        }
+        
+        function showResults() {
+            const resultsDiv = document.getElementById('quizResults');
+            resultsDiv.innerHTML = `Vous avez obtenu ${score}/3 bonnes réponses.`;
+            resultsDiv.classList.remove('hidden');
+            
+            if (score === 3) {
+                resultsDiv.innerHTML += " Excellent travail !";
+            } else if (score === 2) {
+                resultsDiv.innerHTML += " Bien joué, mais il y a encore place à l'amélioration.";
+            } else {
+                resultsDiv.innerHTML += " Continuez à étudier et réessayez !";
+            }
+            
+            score = 0;
+        }
+    </script>
+</body></html>

@@ -1,0 +1,166 @@
+<html><head><base href="https://cours-interactifs-6eme.edu/physique/chapitre-2">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 2: L'énergie et ses formes - Sciences Physiques 6ème</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .lesson-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .example, .exercise {
+    background-color: #e7f2fa;
+    border-left: 5px solid #3498db;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .interactive-element {
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  .hidden {
+    display: none;
+  }
+  button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  .next-lesson-btn {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <h1>Chapitre 2: L'énergie et ses formes</h1>
+  
+  <div class="lesson-content">
+    <h2>Introduction</h2>
+    <p>L'énergie est un concept fondamental en sciences physiques. Elle est présente partout autour de nous et se manifeste sous différentes formes. Dans ce chapitre, nous allons explorer les principales formes d'énergie et comprendre comment elles se transforment.</p>
+
+    <h2>1. Qu'est-ce que l'énergie?</h2>
+    <p>L'énergie est la capacité à produire un travail, c'est-à-dire à provoquer un mouvement ou une transformation. Elle ne se crée pas et ne se perd pas, mais peut se transformer d'une forme à une autre.</p>
+
+    <h2>2. Les principales formes d'énergie</h2>
+    <ul>
+      <li>Énergie mécanique (cinétique et potentielle)</li>
+      <li>Énergie thermique</li>
+      <li>Énergie électrique</li>
+      <li>Énergie chimique</li>
+      <li>Énergie lumineuse</li>
+      <li>Énergie nucléaire</li>
+    </ul>
+
+    <div class="interactive-element" onclick="toggleContent('energyForms')">
+      <p>Cliquez pour en savoir plus sur chaque forme d'énergie</p>
+    </div>
+
+    <div id="energyForms" class="hidden">
+      <h3>Énergie mécanique</h3>
+      <p>C'est l'énergie liée au mouvement (énergie cinétique) et à la position (énergie potentielle) d'un objet.</p>
+      
+      <h3>Énergie thermique</h3>
+      <p>C'est l'énergie liée à la chaleur et à la température des objets.</p>
+      
+      <h3>Énergie électrique</h3>
+      <p>C'est l'énergie transportée par le courant électrique.</p>
+      
+      <h3>Énergie chimique</h3>
+      <p>C'est l'énergie stockée dans les liaisons chimiques des molécules.</p>
+      
+      <h3>Énergie lumineuse</h3>
+      <p>C'est l'énergie transportée par la lumière.</p>
+      
+      <h3>Énergie nucléaire</h3>
+      <p>C'est l'énergie libérée lors des réactions nucléaires.</p>
+    </div>
+
+    <h2>3. Transformations d'énergie</h2>
+    <p>L'énergie peut se transformer d'une forme à une autre. Voici quelques exemples :</p>
+    
+    <div class="example">
+      <p><strong>Exemple 1:</strong> Dans une centrale hydroélectrique, l'énergie potentielle de l'eau est transformée en énergie cinétique (chute d'eau), puis en énergie mécanique (rotation de la turbine), et enfin en énergie électrique (générateur).</p>
+    </div>
+
+    <div class="example">
+      <p><strong>Exemple 2:</strong> Dans une lampe de poche, l'énergie chimique de la pile est transformée en énergie électrique, puis en énergie lumineuse et thermique.</p>
+    </div>
+
+    <h2>4. Conservation de l'énergie</h2>
+    <p>Le principe de conservation de l'énergie stipule que l'énergie ne peut être ni créée ni détruite, mais seulement transformée d'une forme à une autre. La quantité totale d'énergie dans un système isolé reste constante.</p>
+
+    <div class="exercise">
+      <h3>Exercice interactif</h3>
+      <p>Identifiez les transformations d'énergie dans les situations suivantes :</p>
+      <ol>
+        <li>
+          <p>Un panneau solaire alimente une calculatrice.</p>
+          <button onclick="revealAnswer('answer1')">Voir la réponse</button>
+          <p id="answer1" class="hidden">Réponse : Énergie lumineuse → Énergie électrique</p>
+        </li>
+        <li>
+          <p>Une voiture freine brusquement.</p>
+          <button onclick="revealAnswer('answer2')">Voir la réponse</button>
+          <p id="answer2" class="hidden">Réponse : Énergie cinétique → Énergie thermique (chaleur des freins)</p>
+        </li>
+        <li>
+          <p>Une plante pousse grâce à la lumière du soleil.</p>
+          <button onclick="revealAnswer('answer3')">Voir la réponse</button>
+          <p id="answer3" class="hidden">Réponse : Énergie lumineuse → Énergie chimique (photosynthèse)</p>
+        </li>
+      </ol>
+    </div>
+
+  </div>
+
+  <button class="next-lesson-btn" onclick="nextLesson()">Leçon suivante</button>
+
+  <script>
+    function toggleContent(id) {
+      var content = document.getElementById(id);
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+      } else {
+        content.classList.add('hidden');
+      }
+    }
+
+    function revealAnswer(id) {
+      var answer = document.getElementById(id);
+      answer.classList.remove('hidden');
+    }
+
+    function nextLesson() {
+      // Rediriger vers la leçon suivante
+      window.location.href = 'https://cours-interactifs-6eme.edu/physique/chapitre-3';
+    }
+  </script>
+</body></html>

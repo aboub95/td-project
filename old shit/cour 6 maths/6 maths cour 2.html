@@ -1,0 +1,147 @@
+<html><head><base href="https://cours-interactifs-6eme.edu/maths/chapitre-2">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 2: Géométrie plane - Cours de Mathématiques 6ème</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .section {
+    margin-bottom: 30px;
+  }
+  .example {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+  }
+  .interactive {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+  }
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  .next-lesson {
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 18px;
+    background-color: #27ae60;
+  }
+  .next-lesson:hover {
+    background-color: #2ecc71;
+  }
+</style>
+</head>
+<body>
+  <h1>Chapitre 2: Géométrie plane</h1>
+
+  <div class="section">
+    <h2>1. Introduction aux figures géométriques de base</h2>
+    <p>La géométrie plane étudie les formes et les figures dans un espace à deux dimensions. Commençons par explorer les figures de base :</p>
+    <ul>
+      <li>Le point</li>
+      <li>La droite</li>
+      <li>Le segment</li>
+      <li>Le cercle</li>
+      <li>Le triangle</li>
+      <li>Le carré</li>
+      <li>Le rectangle</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>2. Le point et la droite</h2>
+    <p>Un point est la figure géométrique la plus simple. Il n'a pas de dimension, seulement une position.</p>
+    <p>Une droite est une ligne qui s'étend à l'infini dans les deux directions. Elle n'a pas de début ni de fin.</p>
+    <div class="interactive">
+      <svg width="300" height="150">
+        <line x1="50" y1="75" x2="250" y2="75" stroke="black" stroke-width="2"/>
+        <circle cx="150" cy="75" r="3" fill="red"/>
+        <text x="140" y="95" fill="black">A</text>
+      </svg>
+      <p>Dans cette figure, le point rouge A est situé sur la droite.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Le segment</h2>
+    <p>Un segment est une partie d'une droite comprise entre deux points, appelés extrémités du segment.</p>
+    <div class="interactive">
+      <svg width="300" height="150">
+        <line x1="50" y1="75" x2="250" y2="75" stroke="black" stroke-width="2"/>
+        <circle cx="50" cy="75" r="3" fill="blue"/>
+        <circle cx="250" cy="75" r="3" fill="blue"/>
+        <text x="40" y="95" fill="black">B</text>
+        <text x="260" y="95" fill="black">C</text>
+      </svg>
+      <p>Le segment [BC] est représenté ci-dessus.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Le cercle</h2>
+    <p>Un cercle est l'ensemble des points situés à égale distance d'un point fixe appelé centre. Cette distance est appelée rayon.</p>
+    <div class="interactive">
+      <svg width="300" height="300">
+        <circle cx="150" cy="150" r="100" stroke="black" fill="none" stroke-width="2"/>
+        <circle cx="150" cy="150" r="3" fill="red"/>
+        <line x1="150" y1="150" x2="250" y2="150" stroke="blue" stroke-width="2"/>
+        <text x="140" y="140" fill="black">O</text>
+        <text x="260" y="150" fill="blue">r</text>
+      </svg>
+      <p>O est le centre du cercle et r représente le rayon.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Exercice interactif</h2>
+    <p>Identifiez les figures géométriques dans l'image suivante :</p>
+    <div class="interactive">
+      <svg width="400" height="300">
+        <rect x="50" y="50" width="100" height="100" stroke="black" fill="none" stroke-width="2"/>
+        <circle cx="300" cy="100" r="50" stroke="black" fill="none" stroke-width="2"/>
+        <polygon points="200,200 250,300 150,300" stroke="black" fill="none" stroke-width="2"/>
+      </svg>
+      <button onclick="checkAnswer()">Vérifier mes réponses</button>
+    </div>
+  </div>
+
+  <button class="next-lesson" onclick="goToNextLesson()">Leçon suivante</button>
+
+  <script>
+    function checkAnswer() {
+      alert("Bravo ! Vous avez identifié un carré, un cercle et un triangle. Continuez à pratiquer pour améliorer votre reconnaissance des formes géométriques.");
+    }
+
+    function goToNextLesson() {
+      // Rediriger vers la leçon suivante (Chapitre 3)
+      window.location.href = 'https://cours-interactifs-6eme.edu/maths/chapitre-3';
+    }
+  </script>
+</body></html>

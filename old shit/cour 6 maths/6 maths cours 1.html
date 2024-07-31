@@ -1,0 +1,159 @@
+<html><head><base href="https://cours-interactifs-6eme.edu/maths/chapitre-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 1: Les nombres entiers et décimaux - Mathématiques 6ème</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .section {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .example {
+    background-color: #e6f3ff;
+    border-left: 5px solid #3498db;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .exercise {
+    background-color: #e9fce9;
+    border-left: 5px solid #2ecc71;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .interactive {
+    background-color: #fff6e6;
+    border: 2px solid #f39c12;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
+  }
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  #result {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .next-lesson {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #27ae60;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  .next-lesson:hover {
+    background-color: #2ecc71;
+  }
+</style>
+</head>
+<body>
+  <h1>Chapitre 1: Les nombres entiers et décimaux</h1>
+  
+  <div class="section">
+    <h2>1. Introduction aux nombres entiers</h2>
+    <p>Les nombres entiers sont des nombres sans partie décimale. Ils peuvent être positifs, négatifs ou zéro.</p>
+    <div class="example">
+      <p>Exemples de nombres entiers : -3, -2, -1, 0, 1, 2, 3, 4, 5, ...</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Opérations sur les nombres entiers</h2>
+    <p>Nous pouvons effectuer différentes opérations avec les nombres entiers :</p>
+    <ul>
+      <li>Addition (+)</li>
+      <li>Soustraction (-)</li>
+      <li>Multiplication (×)</li>
+      <li>Division (/)</li>
+    </ul>
+    <div class="example">
+      <p>5 + 3 = 8</p>
+      <p>7 - 4 = 3</p>
+      <p>6 × 2 = 12</p>
+      <p>8 ÷ 2 = 4</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Les nombres décimaux</h2>
+    <p>Les nombres décimaux sont des nombres qui ont une partie entière et une partie décimale, séparées par une virgule.</p>
+    <div class="example">
+      <p>Exemples de nombres décimaux : 3,14 ; 0,5 ; 2,75 ; 10,01</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Opérations sur les nombres décimaux</h2>
+    <p>Nous pouvons effectuer les mêmes opérations avec les nombres décimaux qu'avec les nombres entiers.</p>
+    <div class="example">
+      <p>2,5 + 1,7 = 4,2</p>
+      <p>5,8 - 3,2 = 2,6</p>
+      <p>1,5 × 2 = 3,0</p>
+      <p>4,8 ÷ 2 = 2,4</p>
+    </div>
+  </div>
+
+  <div class="interactive">
+    <h2>Exercice interactif</h2>
+    <p>Essayez de résoudre ce problème :</p>
+    <p>Pierre a 3,5 mètres de ficelle. Il en utilise 1,2 mètres pour un projet. Combien de mètres de ficelle lui reste-t-il ?</p>
+    <input type="number" id="answer" step="0.1" placeholder="Entrez votre réponse">
+    <button onclick="checkAnswer()">Vérifier</button>
+    <p id="result"></p>
+  </div>
+
+  <div class="exercise">
+    <h2>Exercices à faire</h2>
+    <ol>
+      <li>Calculez : 15 + 7 - 3</li>
+      <li>Effectuez : 4 × 6 ÷ 2</li>
+      <li>Additionnez : 2,3 + 1,7 + 0,5</li>
+      <li>Soustrayez : 10,0 - 3,8</li>
+    </ol>
+  </div>
+
+  <a href="https://cours-interactifs-6eme.edu/maths/chapitre-2" class="next-lesson">Leçon suivante</a>
+
+  <script>
+    function checkAnswer() {
+      const userAnswer = parseFloat(document.getElementById('answer').value);
+      const correctAnswer = 2.3;
+      const result = document.getElementById('result');
+      
+      if (userAnswer === correctAnswer) {
+        result.textContent = "Correct ! Bien joué !";
+        result.style.color = "green";
+      } else {
+        result.textContent = "Incorrect. Essayez encore !";
+        result.style.color = "red";
+      }
+    }
+  </script>
+</body></html>

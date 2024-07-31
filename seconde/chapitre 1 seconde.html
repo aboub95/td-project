@@ -1,0 +1,328 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVT Seconde - Chapitre 1: La Terre dans l'Univers, la vie et l'évolution du vivant</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .section {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .interactive {
+    background-color: #e8f4f8;
+    border: 1px solid #b8d4e3;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  .quiz {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #dragContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  .draggable {
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    cursor: move;
+    border-radius: 5px;
+  }
+  #dropContainer {
+    display: flex;
+    justify-content: space-around;
+  }
+  .droppable {
+    width: 150px;
+    height: 50px;
+    border: 2px dashed #3498db;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+</style>
+</head><body>
+  <h1>Chapitre 1: La Terre dans l'Univers, la vie et l'évolution du vivant</h1>
+  
+  <div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLWvGMqXvyJANBUIlTe8GmJhn7Dn9sOhwA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+
+  <div class="section">
+    <h2>1. Introduction à l'Univers</h2>
+    <p>L'Univers est vaste et ancien, estimé à environ 13,8 milliards d'années. Il contient des milliards de galaxies, chacune composée de milliards d'étoiles.</p>
+    <div class="interactive">
+      <h3>Animation interactive : Échelle de l'Univers</h3>
+      <p>Utilisez le curseur pour explorer les différentes échelles de l'Univers, de l'infiniment petit à l'infiniment grand.</p>
+      <input type="range" min="1" max="100" value="50" id="universeScale">
+      <div id="scaleDescription">Échelle actuelle : Système solaire</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. La formation de la Terre</h2>
+    <p>La Terre s'est formée il y a environ 4,6 milliards d'années à partir de l'accrétion de matière dans le système solaire primitif.</p>
+    <div class="interactive">
+      <h3>Simulation : Formation de la Terre</h3>
+      <p>Cliquez sur le bouton pour lancer une simulation simplifiée de la formation de la Terre.</p>
+      <button onclick="simulateEarthFormation()">Lancer la simulation</button>
+      <div id="simulationResult"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. L'apparition de la vie</h2>
+    <p>Les premières formes de vie sont apparues sur Terre il y a environ 3,8 milliards d'années, probablement dans les océans primitifs.</p>
+    <div class="interactive">
+      <h3>Frise chronologique interactive</h3>
+      <p>Explorez les événements majeurs de l'histoire de la vie sur Terre.</p>
+      <div id="timeline">
+        <!-- La frise chronologique sera générée par JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Exercice interactif : Chronologie de l'Univers et de la Terre</h2>
+    <p>Placez les événements dans l'ordre chronologique en les faisant glisser dans les cases correspondantes.</p>
+    <div id="dragContainer">
+      <div class="draggable" draggable="true">Formation de la Terre</div>
+      <div class="draggable" draggable="true">Big Bang</div>
+      <div class="draggable" draggable="true">Apparition de la vie</div>
+      <div class="draggable" draggable="true">Formation du système solaire</div>
+    </div>
+    <div id="dropContainer">
+      <div class="droppable" data-order="1"></div>
+      <div class="droppable" data-order="2"></div>
+      <div class="droppable" data-order="3"></div>
+      <div class="droppable" data-order="4"></div>
+    </div>
+    <button onclick="checkOrder()">Vérifier l'ordre</button>
+    <div id="orderResult"></div>
+  </div>
+
+  <div class="quiz">
+    <h2>Quiz rapide</h2>
+    <div id="quizQuestion"></div>
+    <div id="quizOptions"></div>
+    <button onclick="checkAnswer()">Vérifier la réponse</button>
+    <div id="quizResult"></div>
+  </div>
+
+  <div class="navigation">
+    <a href="https://cours-interactifs-seconde.edu/svt/chapitre-0"><button>Chapitre précédent</button></a>
+    <a href="/seconde/programme seconde.html"><button>Retour aux programme</button></a>
+    <a href="/seconde/chapitre 2 seconde.html"><button>Chapitre suivant</button></a>
+  </div>
+
+  <script>
+    // Simulation de la formation de la Terre
+    function simulateEarthFormation() {
+      let stages = ['Accrétion de la matière', 'Différenciation des couches', 'Formation de l\'atmosphère primitive', 'Refroidissement de la surface'];
+      let result = '';
+      stages.forEach((stage, index) => {
+        setTimeout(() => {
+          result += stage + '<br>';
+          document.getElementById('simulationResult').innerHTML = result;
+        }, index * 1000);
+      });
+    }
+
+    // Frise chronologique
+    let timelineEvents = [
+      {year: -4600000000, event: 'Formation de la Terre'},
+      {year: -3800000000, event: 'Premières formes de vie'},
+      {year: -2400000000, event: 'Apparition de l\'oxygène dans l\'atmosphère'},
+      {year: -540000000, event: 'Explosion cambrienne'},
+      {year: -65000000, event: 'Extinction des dinosaures'},
+      {year: -200000, event: 'Apparition d\'Homo sapiens'}
+    ];
+
+    let timeline = document.getElementById('timeline');
+    timelineEvents.forEach(event => {
+      let eventElement = document.createElement('div');
+      eventElement.innerHTML = `<strong>${event.year.toLocaleString()} ans</strong>: ${event.event}`;
+      timeline.appendChild(eventElement);
+    });
+
+    // Quiz
+    let quizQuestions = [
+      {
+        question: 'Quel est l\'âge estimé de l\'Univers ?',
+        options: ['4,6 milliards d\'années', '13,8 milliards d\'années', '100 milliards d\'années'],
+        correctAnswer: 1
+      },
+      {
+        question: 'Quand les premières formes de vie sont-elles apparues sur Terre ?',
+        options: ['Il y a 4,6 milliards d\'années', 'Il y a 3,8 milliards d\'années', 'Il y a 2,4 milliards d\'années'],
+        correctAnswer: 1
+      },
+      {
+        question: 'Quel événement marque le début d\'une grande diversification des formes de vie ?',
+        options: ['L\'apparition de l\'oxygène dans l\'atmosphère', 'L\'explosion cambrienne', 'L\'extinction des dinosaures'],
+        correctAnswer: 1
+      }
+    ];
+
+    let currentQuestion = 0;
+
+    function displayQuestion() {
+      let question = quizQuestions[currentQuestion];
+      document.getElementById('quizQuestion').innerHTML = question.question;
+      let optionsHtml = '';
+      question.options.forEach((option, index) => {
+        optionsHtml += `<input type="radio" name="quizOption" value="${index}"> ${option}<br>`;
+      });
+      document.getElementById('quizOptions').innerHTML = optionsHtml;
+    }
+
+    function checkAnswer() {
+      let selectedOption = document.querySelector('input[name="quizOption"]:checked');
+      if (selectedOption) {
+        let answer = parseInt(selectedOption.value);
+        let question = quizQuestions[currentQuestion];
+        if (answer === question.correctAnswer) {
+          document.getElementById('quizResult').innerHTML = 'Correct !';
+        } else {
+          document.getElementById('quizResult').innerHTML = 'Incorrect. La bonne réponse était : ' + question.options[question.correctAnswer];
+        }
+        currentQuestion++;
+        if (currentQuestion < quizQuestions.length) {
+          setTimeout(displayQuestion, 2000);
+        } else {
+          document.getElementById('quizResult').innerHTML += '<br>Quiz terminé !';
+        }
+      } else {
+        document.getElementById('quizResult').innerHTML = 'Veuillez sélectionner une réponse.';
+      }
+    }
+
+    displayQuestion();
+
+    // Échelle de l'Univers
+    document.getElementById('universeScale').addEventListener('input', function(e) {
+      let scale = e.target.value;
+      let description;
+      if (scale < 20) {
+        description = 'Échelle atomique';
+      } else if (scale < 40) {
+        description = 'Échelle humaine';
+      } else if (scale < 60) {
+        description = 'Système solaire';
+      } else if (scale < 80) {
+        description = 'Galaxie';
+      } else {
+        description = 'Univers observable';
+      }
+      document.getElementById('scaleDescription').innerHTML = 'Échelle actuelle : ' + description;
+    });
+
+    // Exercice interactif de glisser-déposer
+    const draggables = document.querySelectorAll('.draggable');
+    const droppables = document.querySelectorAll('.droppable');
+
+    draggables.forEach(draggable => {
+      draggable.addEventListener('dragstart', dragStart);
+      draggable.addEventListener('dragend', dragEnd);
+    });
+
+    droppables.forEach(droppable => {
+      droppable.addEventListener('dragover', dragOver);
+      droppable.addEventListener('dragenter', dragEnter);
+      droppable.addEventListener('dragleave', dragLeave);
+      droppable.addEventListener('drop', drop);
+    });
+
+    function dragStart() {
+      this.classList.add('dragging');
+    }
+
+    function dragEnd() {
+      this.classList.remove('dragging');
+    }
+
+    function dragOver(e) {
+      e.preventDefault();
+    }
+
+    function dragEnter(e) {
+      e.preventDefault();
+      this.classList.add('hovered');
+    }
+
+    function dragLeave() {
+      this.classList.remove('hovered');
+    }
+
+    function drop() {
+      this.classList.remove('hovered');
+      const draggable = document.querySelector('.dragging');
+      if (this.innerHTML === '') {
+        this.appendChild(draggable);
+      }
+    }
+
+    function checkOrder() {
+      const correctOrder = ['Big Bang', 'Formation du système solaire', 'Formation de la Terre', 'Apparition de la vie'];
+      let isCorrect = true;
+      droppables.forEach((droppable, index) => {
+        if (droppable.firstChild && droppable.firstChild.innerText !== correctOrder[index]) {
+          isCorrect = false;
+        }
+      });
+      document.getElementById('orderResult').innerHTML = isCorrect ? 'Correct ! L\'ordre est bon.' : 'Incorrect. Essayez encore.';
+    }
+  </script>
+</body></html>

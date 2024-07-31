@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <body>
+    
+    <main>
+      <div class="container">
+        <div class="tabs">
+          <div class="tab active" id="user-tab">Utilisateur</div>
+          <div class="tab" id="admin-tab">Administrateur</div>
+          <div class="slider"></div>
+        </div>
+        <form
+          id="user-form"
+          class="active"
+          action="/user-registration"
+          method="POST"
+        >
+          <h3>Inscription / Connexion Utilisateur</h3>
+          <div class="social-buttons">
+            <button
+              type="button"
+              class="social-button google"
+              onclick="socialSignup('google')"
+            >
+              <svg
+                class="social-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#FFFFFF"
+                  d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z"
+                />
+              </svg>
+              Google
+            </button>
+            <button
+              type="button"
+              class="social-button facebook"
+              onclick="socialSignup('facebook')"
+            >
+              <svg
+                class="social-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#FFFFFF"
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+              Facebook
+            </button>
+            <button
+              type="button"
+              class="social-button twitter"
+              onclick="socialSignup('twitter')"
+            >
+              <svg
+                class="social-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#FFFFFF"
+                  d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                />
+              </svg>
+              Twitter
+            </button>
+          </div>
+          <div class="or-divider">ou</div>
+          <input type="text" placeholder="Nom" required />
+          <input type="text" placeholder="Prénom" required />
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Mot de passe" required />
+          <input type="tel" placeholder="Numéro de téléphone" required />
+          <input type="date" placeholder="Date de naissance" required />
+          <select required>
+            <option value="" disabled selected>Sélectionnez votre pays</option>
+            <option value="FR">France</option>
+            <option value="BE">Belgique</option>
+            <option value="CH">Suisse</option>
+            <option value="CA">Canada</option>
+          </select>
+          <select required>
+            <option value="" disabled selected>Type d'abonnement</option>
+            <option value="basic">Basique</option>
+            <option value="premium">Premium</option>
+            <option value="vip">VIP</option>
+          </select>
+          <input type="text" placeholder="Code promotionnel (optionnel)" />
+          <button type="submit">S'inscrire</button>
+
+          <div class="or-divider">ou</div>
+
+          <h3>Connexion Utilisateur</h3>
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Mot de passe" required />
+          <button type="button" onclick="loginUser()">
+            <a href="./programme deverouillé.html">Se connecter</a>
+          </button>
+          <div style="text-align: center; margin-top: 10px">
+            <a href="#" onclick="forgotPasswordUser()">Mot de passe oublié ?</a>
+          </div>
+        </form>
+        <form id="admin-form" action="/admin-login" method="POST">
+          <h3>Connexion Administrateur</h3>
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Mot de passe" required />
+          <input type="text" placeholder="Code administrateur" required />
+          <button type="submit" ">
+            <a href="./admintrue.html">Se connecter en tant qu'administrateur</a>
+          </button>
+          <div style="text-align: center; margin-top: 10px">
+            <a href="#" onclick="forgotPasswordAdmin()"
+              >Mot de passe oublié ?</a
+            >
+          </div>
+        </form>
+      </div>
+
+      <!-- <div id="admin-dashboard" style="display: none">
+        <h2>Tableau de bord Administrateur</h2>
+        <div class="dashboard-section">
+          <h3>Statistiques générales</h3>
+          <div class="dashboard-stats">
+            <div class="stat-card">
+              <h4>Utilisateurs totaux</h4>
+              <p>10,456</p>
+            </div>
+            <div class="stat-card">
+              <h4>Nouveaux utilisateurs (30j)</h4>
+              <p>1,234</p>
+            </div>
+            <div class="stat-card">
+              <h4>Utilisateurs actifs</h4>
+              <p>8,901</p>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard-section">
+          <h3>Abonnements</h3>
+          <div class="dashboard-stats">
+            <div class="stat-card">
+              <h4>Abonnements Basique</h4>
+              <p>5,678</p>
+            </div>
+            <div class="stat-card">
+              <h4>Abonnements Premium</h4>
+              <p>3,456</p>
+            </div>
+            <div class="stat-card">
+              <h4>Abonnements VIP</h4>
+              <p>1,322</p>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard-section">
+          <h3>Actions rapides</h3>
+          <button onclick="showUserManagement()">
+            Gestion des utilisateurs
+          </button>
+          <button onclick="showContentManagement()">Gestion du contenu</button>
+          <button onclick="showAnalytics()">Analyses détaillées</button>
+        </div>
+      </div> -->
+    </main>
+
+    <div id="socialSignupModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Inscription avec <span id="socialProvider"></span></h2>
+        <p>
+          Veuillez compléter les informations suivantes pour finaliser votre
+          inscription :
+        </p>
+        <form id="socialSignupForm">
+          <input type="text" placeholder="Nom" required />
+          <input type="text" placeholder="Prénom" required />
+          <input type="tel" placeholder="Numéro de téléphone" required />
+          <input type="date" placeholder="Date de naissance" required />
+          <select required>
+            <option value="" disabled selected>Sélectionnez votre pays</option>
+            <option value="FR">France</option>
+            <option value="BE">Belgique</option>
+            <option value="CH">Suisse</option>
+            <option value="CA">Canada</option>
+          </select>
+          <select required>
+            <option value="" disabled selected>Type d'abonnement</option>
+            <option value="basic">Basique</option>
+            <option value="premium">Premium</option>
+            <option value="vip">VIP</option>
+          </select>
+          <input type="text" placeholder="Code promotionnel (optionnel)" />
+          <button type="submit">Finaliser l'inscription</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const userTab = document.getElementById("user-tab");
+      const adminTab = document.getElementById("admin-tab");
+      const userForm = document.getElementById("user-form");
+      const adminForm = document.getElementById("admin-form");
+      const slider = document.querySelector(".slider");
+      const modal = document.getElementById("socialSignupModal");
+      const closeBtn = document.getElementsByClassName("close")[0];
+      const socialProvider = document.getElementById("socialProvider");
+      const adminDashboard = document.getElementById("admin-dashboard");
+
+      function switchTab(tab) {
+        if (tab === "user") {
+          userTab.classList.add("active");
+          adminTab.classList.remove("active");
+          userForm.classList.add("active");
+          adminForm.classList.remove("active");
+          slider.style.transform = "translateX(0)";
+        } else {
+          adminTab.classList.add("active");
+          userTab.classList.remove("active");
+          adminForm.classList.add("active");
+          userForm.classList.remove("active");
+          slider.style.transform = "translateX(100%)";
+        }
+      }
+
+      userTab.addEventListener("click", () => switchTab("user"));
+      adminTab.addEventListener("click", () => switchTab("admin"));
+
+      function socialSignup(provider) {
+        console.log(`Inscription avec ${provider}`);
+        socialProvider.textContent =
+          provider.charAt(0).toUpperCase() + provider.slice(1);
+        modal.style.display = "block";
+        // Ici, vous devriez implémenter la logique d'authentification réelle avec le provider choisi
+      }
+
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      document.getElementById("socialSignupForm").onsubmit = function (e) {
+        e.preventDefault();
+        console.log(
+          "Finalisation de l'inscription avec les données sociales et supplémentaires"
+        );
+        // Ici, vous devriez implémenter la logique pour envoyer les données au serveur
+        modal.style.display = "none";
+      };
+
+      function loginUser() {
+        const email = document.querySelector(
+          '#user-form input[type="email"]'
+        ).value;
+        const password = document.querySelector(
+          '#user-form input[type="password"]'
+        ).value;
+        console.log("Tentative de connexion utilisateur avec:", email);
+        // Implémentez ici la logique de connexion utilisateur
+      }
+
+      function loginAdmin(event) {
+        event.preventDefault();
+        const email = document.querySelector(
+          '#admin-form input[type="email"]'
+        ).value;
+        const password = document.querySelector(
+          '#admin-form input[type="password"]'
+        ).value;
+        const adminCode = document.querySelector(
+          '#admin-form input[type="text"]'
+        ).value;
+        console.log("Tentative de connexion administrateur avec:", email);
+        // Ici, vous devriez implémenter la vérification des identifiants administrateur
+        // Pour cette démonstration, nous allons simplement afficher le dashboard
+        document.querySelector(".container").style.display = "none";
+        adminDashboard.style.display = "block";
+      }
+
+      function forgotPasswordUser() {
+        const email = prompt(
+          "Veuillez entrer votre adresse e-mail pour réinitialiser votre mot de passe:"
+        );
+        if (email) {
+          console.log(
+            "Demande de réinitialisation du mot de passe utilisateur pour:",
+            email
+          );
+          // Implémentez ici la logique de réinitialisation du mot de passe utilisateur
+        }
+      }
+
+      function forgotPasswordAdmin() {
+        const email = prompt(
+          "Veuillez entrer votre adresse e-mail administrateur pour réinitialiser votre mot de passe:"
+        );
+        if (email) {
+          console.log(
+            "Demande de réinitialisation du mot de passe administrateur pour:",
+            email
+          );
+          // Implémentez ici la logique de réinitialisation du mot de passe administrateur
+        }
+      }
+
+      function showUserManagement() {
+        console.log("Affichage de la gestion des utilisateurs");
+        // Implémentez ici la logique pour afficher la gestion des utilisateurs
+      }
+
+      function showContentManagement() {
+        console.log("Affichage de la gestion du contenu");
+        // Implémentez ici la logique pour afficher la gestion du contenu
+      }
+
+      function showAnalytics() {
+        console.log("Affichage des analyses détaillées");
+        // Implémentez ici la logique pour afficher les analyses détaillées
+      }
+    </script>
+  </body>
+</html>

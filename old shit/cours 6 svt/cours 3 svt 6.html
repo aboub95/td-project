@@ -1,0 +1,195 @@
+<html><head><base href="https://cours-interactifs-6eme.edu/svt/chapitre-2/chapitre-3">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVT - Chapitre 3 : La reproduction des êtres vivants</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .image-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .interactive-element {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+  }
+  .interactive-element h3 {
+    margin-top: 0;
+  }
+  button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  .navigation a {
+    text-decoration: none;
+    color: #3498db;
+    padding: 10px 20px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+  }
+  .navigation a:hover {
+    background-color: #3498db;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+  <div class="content">
+    <h1>Chapitre 3 : La reproduction des êtres vivants</h1>
+    
+    <p>Dans ce chapitre, nous allons explorer les différents modes de reproduction chez les êtres vivants. La reproduction est un processus fondamental qui permet aux espèces de se perpétuer et d'évoluer au fil du temps.</p>
+    
+    <h2>1. Les types de reproduction</h2>
+    <p>Il existe deux grands types de reproduction chez les êtres vivants :</p>
+    <ul>
+      <li><strong>La reproduction asexuée</strong> : Un seul parent produit des descendants génétiquement identiques.</li>
+      <li><strong>La reproduction sexuée</strong> : Deux parents combinent leur matériel génétique pour produire des descendants génétiquement uniques.</li>
+    </ul>
+    
+    <div class="image-container">
+      <img src="reproduction_types.svg" alt="Schéma comparatif de la reproduction asexuée et sexuée" width="600" height="400">
+    </div>
+    
+    <h2>2. La reproduction asexuée</h2>
+    <p>Dans la reproduction asexuée, un seul organisme peut produire des descendants génétiquement identiques à lui-même. Voici quelques exemples :</p>
+    <ul>
+      <li>La division cellulaire chez les bactéries</li>
+      <li>Le bourgeonnement chez les hydres</li>
+      <li>La fragmentation chez les étoiles de mer</li>
+      <li>La production de spores chez les fougères</li>
+    </ul>
+    
+    <h2>3. La reproduction sexuée</h2>
+    <p>La reproduction sexuée implique la combinaison de matériel génétique de deux parents. Ce processus se déroule généralement en plusieurs étapes :</p>
+    <ol>
+      <li>Production de gamètes (cellules reproductrices) par chaque parent</li>
+      <li>Rencontre et fusion des gamètes (fécondation)</li>
+      <li>Formation d'un zygote</li>
+      <li>Développement de l'embryon</li>
+    </ol>
+    
+    <h2>4. Avantages et inconvénients des deux types de reproduction</h2>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Avantages</th>
+        <th>Inconvénients</th>
+      </tr>
+      <tr>
+        <td>Asexuée</td>
+        <td>
+          <ul>
+            <li>Rapide</li>
+            <li>Nécessite un seul parent</li>
+            <li>Conserve les caractéristiques avantageuses</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Pas de diversité génétique</li>
+            <li>Vulnérabilité aux changements environnementaux</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Sexuée</td>
+        <td>
+          <ul>
+            <li>Crée de la diversité génétique</li>
+            <li>Meilleure adaptation aux changements</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Nécessite deux parents</li>
+            <li>Processus plus lent et coûteux en énergie</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+    
+    <div class="interactive-element">
+      <h3>Activité interactive : Cycle de vie d'une plante à fleurs</h3>
+      <p>Cliquez sur les différentes étapes pour en savoir plus sur le cycle de vie d'une plante à fleurs.</p>
+      <div id="plant-lifecycle">
+        <button onclick="showInfo('seed')">Graine</button>
+        <button onclick="showInfo('germination')">Germination</button>
+        <button onclick="showInfo('growth')">Croissance</button>
+        <button onclick="showInfo('flowering')">Floraison</button>
+        <button onclick="showInfo('pollination')">Pollinisation</button>
+        <button onclick="showInfo('fruit')">Formation du fruit</button>
+      </div>
+      <p id="lifecycle-info"></p>
+    </div>
+    
+    <div class="navigation">
+      <a href="../chapitre-2">← Chapitre précédent</a>
+      <a href="../../abonnement">Chapitre suivant →</a>
+    </div>
+  </div>
+
+  <script>
+    function showInfo(stage) {
+      const infoElement = document.getElementById('lifecycle-info');
+      let info = '';
+      switch(stage) {
+        case 'seed':
+          info = "La graine contient un embryon de plante et des réserves nutritives.";
+          break;
+        case 'germination':
+          info = "La graine absorbe de l'eau et commence à pousser, utilisant ses réserves nutritives.";
+          break;
+        case 'growth':
+          info = "La plante développe des racines, des tiges et des feuilles, et commence la photosynthèse.";
+          break;
+        case 'flowering':
+          info = "La plante produit des fleurs, qui sont les organes reproducteurs.";
+          break;
+        case 'pollination':
+          info = "Le pollen est transféré d'une fleur à une autre, permettant la fécondation.";
+          break;
+        case 'fruit':
+          info = "Après la fécondation, l'ovaire de la fleur se développe en fruit contenant des graines.";
+          break;
+      }
+      infoElement.textContent = info;
+    }
+  </script>
+</body></html>

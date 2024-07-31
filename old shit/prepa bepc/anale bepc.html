@@ -1,0 +1,109 @@
+<html><head><base href="https://cours-interactifs-terminale.edu/prepa-bepc/annales">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annales BEPC - Préparation aux examens</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  h1 {
+    color: #2ecc71;
+    text-align: center;
+  }
+  .annale {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .annale h2 {
+    color: #3498db;
+    margin-top: 0;
+  }
+  .matiere {
+    font-weight: bold;
+    color: #e74c3c;
+  }
+  .download-btn {
+    display: inline-block;
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+  }
+  .download-btn:hover {
+    background-color: #27ae60;
+  }
+  .back-btn {
+    display: inline-block;
+    background-color: #95a5a6;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+  .back-btn:hover {
+    background-color: #7f8c8d;
+  }
+</style>
+</head>
+<body>
+  <a href="/prepa-bepc" class="back-btn">Retour à la préparation BEPC</a>
+  <h1>Annales BEPC - Préparation aux examens</h1>
+  
+  <div class="annale">
+    <h2>BEPC 2022</h2>
+    <p><span class="matiere">Français</span> - Sujet de rédaction et questions de compréhension</p>
+    <a href="/downloads/bepc2022_francais.pdf" class="download-btn">Télécharger le sujet</a>
+    <a href="/downloads/bepc2022_francais_corrige.pdf" class="download-btn">Télécharger le corrigé</a>
+  </div>
+  
+  <div class="annale">
+    <h2>BEPC 2022</h2>
+    <p><span class="matiere">Mathématiques</span> - Exercices et problèmes</p>
+    <a href="/downloads/bepc2022_maths.pdf" class="download-btn">Télécharger le sujet</a>
+    <a href="/downloads/bepc2022_maths_corrige.pdf" class="download-btn">Télécharger le corrigé</a>
+  </div>
+  
+  <div class="annale">
+    <h2>BEPC 2021</h2>
+    <p><span class="matiere">Sciences de la Vie et de la Terre</span> - Questions et schémas</p>
+    <a href="/downloads/bepc2021_svt.pdf" class="download-btn">Télécharger le sujet</a>
+    <a href="/downloads/bepc2021_svt_corrige.pdf" class="download-btn">Télécharger le corrigé</a>
+  </div>
+  
+  <div class="annale">
+    <h2>BEPC 2021</h2>
+    <p><span class="matiere">Histoire-Géographie</span> - Dissertation et étude de documents</p>
+    <a href="/downloads/bepc2021_histgeo.pdf" class="download-btn">Télécharger le sujet</a>
+    <a href="/downloads/bepc2021_histgeo_corrige.pdf" class="download-btn">Télécharger le corrigé</a>
+  </div>
+  
+  <div class="annale">
+    <h2>BEPC 2020</h2>
+    <p><span class="matiere">Anglais</span> - Compréhension et expression écrite</p>
+    <a href="/downloads/bepc2020_anglais.pdf" class="download-btn">Télécharger le sujet</a>
+    <a href="/downloads/bepc2020_anglais_corrige.pdf" class="download-btn">Télécharger le corrigé</a>
+  </div>
+  
+  <script>
+    // On pourrait ajouter ici un script pour tracker les téléchargements ou ajouter des fonctionnalités interactives
+    document.querySelectorAll('.download-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // Par exemple, on pourrait enregistrer les statistiques de téléchargement
+        console.log(`Téléchargement: ${e.target.href}`);
+      });
+    });
+  </script>
+</body></html>

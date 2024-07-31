@@ -1,0 +1,173 @@
+<html><head><base href="https://cours-interactifs-6eme.edu/physique/chapitre-3">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 3 : Introduction à l'électricité - Sciences Physiques 6ème</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .lesson-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .interactive-demo {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+  }
+  .quiz {
+    background-color: #e8f4f8;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 30px;
+  }
+  button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #2980b9;
+  }
+  .next-lesson {
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 18px;
+    background-color: #2ecc71;
+  }
+  .next-lesson:hover {
+    background-color: #27ae60;
+  }
+</style>
+</head>
+<body>
+  <h1>Chapitre 3 : Introduction à l'électricité</h1>
+  
+  <div class="lesson-content">
+    <h2>1. Qu'est-ce que l'électricité ?</h2>
+    <p>L'électricité est une forme d'énergie résultant du mouvement des électrons. Elle est présente partout autour de nous et est essentielle à notre vie quotidienne moderne.</p>
+    
+    <h2>2. Les composants d'un circuit électrique simple</h2>
+    <ul>
+      <li>Source d'énergie (pile ou batterie)</li>
+      <li>Conducteurs (fils électriques)</li>
+      <li>Interrupteur</li>
+      <li>Récepteur (ampoule, moteur, etc.)</li>
+    </ul>
+    
+    <div class="interactive-demo">
+      <h3>Démonstration interactive : Construisez un circuit simple</h3>
+      <p>Utilisez les éléments ci-dessous pour construire un circuit qui allume une ampoule :</p>
+      <svg width="400" height="300" id="circuit-builder">
+        <!-- SVG elements will be added here dynamically -->
+      </svg>
+      <button onclick="resetCircuit()">Réinitialiser le circuit</button>
+    </div>
+    
+    <h2>3. Conducteurs et isolants</h2>
+    <p>Les matériaux peuvent être classés en deux catégories :</p>
+    <ul>
+      <li><strong>Conducteurs</strong> : permettent le passage du courant électrique (ex : métaux)</li>
+      <li><strong>Isolants</strong> : empêchent le passage du courant électrique (ex : plastique, bois)</li>
+    </ul>
+    
+    <h2>4. Sécurité électrique</h2>
+    <p>Il est crucial de comprendre les dangers potentiels de l'électricité et de suivre ces règles de sécurité :</p>
+    <ul>
+      <li>Ne jamais insérer d'objets dans les prises électriques</li>
+      <li>Garder les appareils électriques loin de l'eau</li>
+      <li>Ne pas surcharger les prises électriques</li>
+      <li>Toujours demander l'aide d'un adulte pour manipuler des équipements électriques</li>
+    </ul>
+  </div>
+  
+  <div class="quiz">
+    <h2>Quiz rapide</h2>
+    <p>1. Quel composant d'un circuit électrique fournit l'énergie ?</p>
+    <button onclick="checkAnswer(1, 'a')">a) La pile</button>
+    <button onclick="checkAnswer(1, 'b')">b) L'ampoule</button>
+    <button onclick="checkAnswer(1, 'c')">c) L'interrupteur</button>
+    
+    <p>2. Lequel de ces matériaux est un bon conducteur d'électricité ?</p>
+    <button onclick="checkAnswer(2, 'a')">a) Bois</button>
+    <button onclick="checkAnswer(2, 'b')">b) Plastique</button>
+    <button onclick="checkAnswer(2, 'c')">c) Cuivre</button>
+    
+    <p id="quiz-result"></p>
+  </div>
+
+  <button class="next-lesson" onclick="nextLesson()">Leçon suivante</button>
+
+  <script>
+    // Circuit builder logic
+    const circuitBuilder = document.getElementById('circuit-builder');
+    const components = [
+      { name: 'battery', x: 50, y: 150, width: 40, height: 60 },
+      { name: 'wire', x: 90, y: 180, width: 100, height: 5 },
+      { name: 'switch', x: 190, y: 150, width: 40, height: 40 },
+      { name: 'bulb', x: 280, y: 130, width: 40, height: 60 },
+      { name: 'wire', x: 300, y: 190, width: 100, height: 5, rotation: 90 },
+      { name: 'wire', x: 50, y: 210, width: 250, height: 5 }
+    ];
+
+    function drawCircuit() {
+      components.forEach(comp => {
+        const elem = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        elem.setAttribute("x", comp.x);
+        elem.setAttribute("y", comp.y);
+        elem.setAttribute("width", comp.width);
+        elem.setAttribute("height", comp.height);
+        elem.setAttribute("fill", "#333");
+        if (comp.rotation) {
+          elem.setAttribute("transform", `rotate(${comp.rotation} ${comp.x + comp.width/2} ${comp.y + comp.height/2})`);
+        }
+        circuitBuilder.appendChild(elem);
+      });
+    }
+
+    function resetCircuit() {
+      circuitBuilder.innerHTML = '';
+      drawCircuit();
+    }
+
+    drawCircuit();
+
+    // Quiz logic
+    function checkAnswer(question, answer) {
+      const correctAnswers = { 1: 'a', 2: 'c' };
+      const result = document.getElementById('quiz-result');
+      
+      if (answer === correctAnswers[question]) {
+        result.textContent = "Correct ! Bien joué !";
+        result.style.color = "green";
+      } else {
+        result.textContent = "Incorrect. Essayez encore !";
+        result.style.color = "red";
+      }
+    }
+
+    // Next lesson function
+    function nextLesson() {
+      // This would typically navigate to the next lesson
+      // For this example, we'll just show an alert
+      alert("Vous allez être redirigé vers la leçon suivante. Cette fonctionnalité n'est pas encore implémentée.");
+    }
+  </script>
+</body></html>

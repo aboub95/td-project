@@ -1,0 +1,156 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVT - Chapitre 2 : La cellule, unité du vivant</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .image-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .quiz {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+  }
+  .quiz h3 {
+    margin-top: 0;
+  }
+  .quiz ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .quiz li {
+    margin-bottom: 10px;
+  }
+  .quiz button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .quiz button:hover {
+    background-color: #2980b9;
+  }
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  .navigation a {
+    text-decoration: none;
+    color: #3498db;
+    padding: 10px 20px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+  }
+  .navigation a:hover {
+    background-color: #3498db;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+  <div class="content">
+    <h1>Chapitre 2 : La cellule, unité du vivant</h1>
+    
+    <p>Bienvenue dans ce chapitre passionnant sur la cellule, l'unité fondamentale de la vie. Nous allons explorer la structure et les fonctions de la cellule, en comprenant pourquoi elle est considérée comme la brique de base de tous les êtres vivants.</p>
+    
+    <h2>1. Introduction à la cellule</h2>
+    <p>La cellule est la plus petite unité structurale et fonctionnelle de tous les organismes vivants. Découverte pour la première fois par Robert Hooke en 1665, la cellule est depuis considérée comme l'élément de base de la vie.</p>
+    
+    <div class="image-container">
+      <img src="cell_structure.svg" alt="Structure d'une cellule animale typique" width="600" height="400">
+    </div>
+    
+    <h2>2. Types de cellules</h2>
+    <p>Il existe deux types principaux de cellules :</p>
+    <ul>
+      <li><strong>Cellules procaryotes</strong> : Elles sont plus simples et ne possèdent pas de noyau défini. On les trouve chez les bactéries.</li>
+      <li><strong>Cellules eucaryotes</strong> : Elles sont plus complexes, avec un noyau défini et d'autres organites. On les trouve chez les plantes, les animaux et les champignons.</li>
+    </ul>
+    
+    <h2>3. Composants principaux d'une cellule eucaryote</h2>
+    <ul>
+      <li><strong>Membrane plasmique</strong> : Elle entoure la cellule et contrôle ce qui entre et sort.</li>
+      <li><strong>Noyau</strong> : Il contient l'ADN, le matériel génétique de la cellule.</li>
+      <li><strong>Cytoplasme</strong> : C'est le "gel" à l'intérieur de la cellule où se trouvent les organites.</li>
+      <li><strong>Mitochondries</strong> : Elles produisent l'énergie pour la cellule.</li>
+      <li><strong>Réticulum endoplasmique</strong> : Il aide à la synthèse et au transport des protéines.</li>
+      <li><strong>Appareil de Golgi</strong> : Il modifie et emballe les protéines pour leur transport.</li>
+    </ul>
+    
+    <h2>4. Fonctions cellulaires de base</h2>
+    <p>Les cellules accomplissent de nombreuses fonctions essentielles à la vie, notamment :</p>
+    <ul>
+      <li>La production d'énergie</li>
+      <li>La synthèse de protéines</li>
+      <li>La division cellulaire</li>
+      <li>La communication intercellulaire</li>
+      <li>L'élimination des déchets</li>
+    </ul>
+    
+    <div class="quiz">
+      <h3>Quiz rapide</h3>
+      <p>Testez vos connaissances sur la cellule :</p>
+      <ul>
+        <li>
+          <input type="radio" name="q1" id="q1a"> 
+          <label for="q1a">La cellule a été découverte par Louis Pasteur</label>
+        </li>
+        <li>
+          <input type="radio" name="q1" id="q1b"> 
+          <label for="q1b">La cellule a été découverte par Robert Hooke</label>
+        </li>
+        <li>
+          <input type="radio" name="q1" id="q1c"> 
+          <label for="q1c">La cellule a été découverte par Charles Darwin</label>
+        </li>
+      </ul>
+      <button onclick="checkAnswer()">Vérifier la réponse</button>
+    </div>
+    
+    <div class="navigation">
+      <a href="chapitre-1">← Chapitre précédent</a>
+      <a href="chapitre-3">Chapitre suivant →</a>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const correctAnswer = document.getElementById('q1b');
+      if (correctAnswer.checked) {
+        alert('Bravo ! C\'est la bonne réponse.');
+      } else {
+        alert('Ce n\'est pas la bonne réponse. Essayez encore !');
+      }
+    }
+  </script>
+</body></html>

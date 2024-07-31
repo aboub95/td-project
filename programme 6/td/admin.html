@@ -1,0 +1,620 @@
+<html><head><base href="https://cours-interactifs-seconde.edu/admin">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Administrateur - Cours Interactifs</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --text-color: #34495e;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  header {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  nav {
+    background-color: var(--primary-color);
+    padding: 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav ul li {
+    margin: 5px 15px;
+  }
+
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: var(--accent-color);
+  }
+
+  h1, h2, h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+
+  table:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  th, td {
+    border: none;
+    padding: 12px;
+    text-align: left;
+  }
+
+  th {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    margin: 5px;
+  }
+
+  button:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    animation: fadeIn 0.3s;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideIn 0.3s;
+  }
+
+  @keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .close:hover {
+    color: var(--accent-color);
+  }
+
+  .stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .stat-box {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+  }
+
+  .stat-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    transition: all 0.5s ease;
+  }
+
+  .action-buttons {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  #fileInput {
+    display: none;
+  }
+
+  /* Responsive design */
+  @media (min-width: 576px) {
+    .stat-box {
+      width: calc(50% - 10px);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .stat-box {
+      width: calc(33.33% - 20px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+
+    table {
+      font-size: 14px;
+    }
+
+    button {
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+
+    .modal-content {
+      width: 95%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav ul li {
+      margin: 5px 0;
+    }
+
+    table {
+      font-size: 12px;
+    }
+
+    th, td {
+      padding: 8px;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+    }
+
+    button {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+
+  /* Animations */
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-number {
+    animation: countUp 1s ease-out forwards;
+  }
+
+  /* Form styles */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input, select, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Dashboard Administrateur</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#stats">Statistiques</a></li>
+        <li><a href="#courses">Gestion des Cours</a></li>
+        <li><a href="#users">Gestion des Utilisateurs</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <section id="stats">
+      <h2>Statistiques</h2>
+      <div class="stats-container">
+        <div class="stat-box">
+          <h3>Utilisateurs inscrits</h3>
+          <div class="stat-number" id="totalUsers">0</div>
+        </div>
+        <div class="stat-box">
+          <h3>Abonnements actifs</h3>
+          <div class="stat-number" id="activeSubscriptions">0</div>
+        </div>
+        <div class="stat-box">
+          <h3>Total des cours</h3>
+          <div class="stat-number" id="totalCourses">0</div>
+        </div>
+      </div>
+      <h3>Inscriptions par matière</h3>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Matière</th>
+              <th>Nombre d'inscrits</th>
+            </tr>
+          </thead>
+          <tbody id="subjectEnrollments">
+            <!-- Les inscriptions par matière seront ajoutées ici dynamiquement -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <section id="courses">
+      <h2>Gestion des Cours</h2>
+      <div class="action-buttons">
+        <button onclick="openModal('addCourseModal')">Ajouter un cours</button>
+        <button onclick="document.getElementById('fileInput').click()">Importer des fichiers</button>
+        <input type="file" id="fileInput" multiple onchange="handleFileImport(this.files)">
+      </div>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Titre</th>
+              <th>Matière</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="coursesList">
+            <!-- Les cours seront ajoutés ici dynamiquement -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <section id="users">
+      <h2>Gestion des Utilisateurs</h2>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Abonné</th>
+              <th>Matières souscrites</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="usersList">
+            <!-- Les utilisateurs seront ajoutés ici dynamiquement -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Modal pour ajouter/modifier un cours -->
+  <div id="addCourseModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('addCourseModal')">&times;</span>
+      <h2 id="modalTitle">Ajouter un cours</h2>
+      <form id="courseForm">
+        <input type="hidden" id="courseId">
+        <label for="courseTitle">Titre:</label>
+        <input type="text" id="courseTitle" name="courseTitle" required>
+        <label for="courseSubject">Matière:</label>
+        <select id="courseSubject" name="courseSubject" required>
+          <option value="SVT">SVT</option>
+          <option value="Physique">Physique</option>
+          <option value="Mathématiques">Mathématiques</option>
+        </select>
+        <label for="courseContent">Contenu:</label>
+        <textarea id="courseContent" name="courseContent" rows="4" required></textarea>
+        <button type="submit">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script>
+    // Données factices pour les cours et les utilisateurs
+    let courses = [
+      { id: 1, title: "La Terre dans l'Univers", subject: "SVT", content: "Contenu du cours sur la Terre dans l'Univers" },
+      { id: 2, title: "Les forces en physique", subject: "Physique", content: "Contenu du cours sur les forces en physique" },
+      { id: 3, title: "Fonctions et équations", subject: "Mathématiques", content: "Contenu du cours sur les fonctions et équations" }
+    ];
+
+    let users = [
+      { id: 1, name: "Jean Dupont", email: "jean@example.com", subscribed: true, enrolledSubjects: ["SVT", "Physique"] },
+      { id: 2, name: "Marie Martin", email: "marie@example.com", subscribed: false, enrolledSubjects: ["Mathématiques"] },
+      { id: 3, name: "Pierre Durand", email: "pierre@example.com", subscribed: true, enrolledSubjects: ["SVT", "Physique", "Mathématiques"] }
+    ];
+
+    // Fonction pour afficher les statistiques avec animation
+    function displayStats() {
+      animateNumber('totalUsers', users.length);
+      animateNumber('activeSubscriptions', users.filter(user => user.subscribed).length);
+      animateNumber('totalCourses', courses.length);
+
+      const subjectEnrollments = document.getElementById('subjectEnrollments');
+      subjectEnrollments.innerHTML = '';
+      const subjects = ["SVT", "Physique", "Mathématiques"];
+      subjects.forEach(subject => {
+        const count = users.filter(user => user.enrolledSubjects.includes(subject)).length;
+        const row = `
+          <tr>
+            <td>${subject}</td>
+            <td class="animate-number">${count}</td>
+          </tr>
+        `;
+        subjectEnrollments.innerHTML += row;
+      });
+    }
+
+    // Fonction pour animer les nombres
+    function animateNumber(elementId, finalNumber) {
+      const element = document.getElementById(elementId);
+      element.classList.add('animate-number');
+      gsap.fromTo(element, 
+        { innerHTML: 0, opacity: 0, y: 20 },
+        { 
+          innerHTML: finalNumber,
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          snap: { innerHTML: 1 }
+        }
+      );
+    }
+
+    // Fonction pour afficher les cours
+    function displayCourses() {
+      const coursesList = document.getElementById('coursesList');
+      coursesList.innerHTML = '';
+      courses.forEach(course => {
+        const row = `
+          <tr>
+            <td>${course.title}</td>
+            <td>${course.subject}</td>
+            <td>
+              <button onclick="editCourse(${course.id})">Modifier</button>
+              <button onclick="deleteCourse(${course.id})">Supprimer</button>
+            </td>
+          </tr>
+        `;
+        coursesList.innerHTML += row;
+      });
+    }
+
+    // Fonction pour afficher les utilisateurs
+    function displayUsers() {
+      const usersList = document.getElementById('usersList');
+      usersList.innerHTML = '';
+      users.forEach(user => {
+        const row = `
+          <tr>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.subscribed ? 'Oui' : 'Non'}</td>
+            <td>${user.enrolledSubjects.join(', ')}</td>
+            <td>
+              <button onclick="deleteUser(${user.id})">Supprimer</button>
+            </td>
+          </tr>
+        `;
+        usersList.innerHTML += row;
+      });
+    }
+
+    // Fonctions pour ouvrir et fermer les modals
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.style.display = 'block';
+      gsap.from(modal.querySelector('.modal-content'), {
+        y: -50,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      gsap.to(modal, {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => {
+          modal.style.display = 'none';
+          modal.style.opacity = 1;
+          document.getElementById('courseForm').reset();
+          document.getElementById('courseId').value = '';
+          document.getElementById('modalTitle').textContent = 'Ajouter un cours';
+        }
+      });
+    }
+
+    // Fonction pour ajouter ou modifier un cours
+    function saveCourse(event) {
+      event.preventDefault();
+      const courseId = document.getElementById('courseId').value;
+      const courseTitle = document.getElementById('courseTitle').value;
+      const courseSubject = document.getElementById('courseSubject').value;
+      const courseContent = document.getElementById('courseContent').value;
+
+      if (courseId) {
+        // Modification d'un cours existant
+        const index = courses.findIndex(course => course.id == courseId);
+        if (index !== -1) {
+          courses[index] = { id: parseInt(courseId), title: courseTitle, subject: courseSubject, content: courseContent };
+        }
+      } else {
+        // Ajout d'un nouveau cours
+        const newId = courses.length > 0 ? Math.max(...courses.map(c => c.id)) + 1 : 1;
+        courses.push({ id: newId, title: courseTitle, subject: courseSubject, content: courseContent });
+      }
+
+      displayCourses();
+      displayStats();
+      closeModal('addCourseModal');
+    }
+
+    // Fonction pour éditer un cours
+    function editCourse(id) {
+      const course = courses.find(c => c.id == id);
+      if (course) {
+        document.getElementById('courseId').value = course.id;
+        document.getElementById('courseTitle').value = course.title;
+        document.getElementById('courseSubject').value = course.subject;
+        document.getElementById('courseContent').value = course.content || '';
+        document.getElementById('modalTitle').textContent = 'Modifier un cours';
+        openModal('addCourseModal');
+      }
+    }
+
+    // Fonction pour supprimer un cours
+    function deleteCourse(id) {
+      if (confirm('Êtes-vous sûr de vouloir supprimer ce cours ?')) {
+        courses = courses.filter(course => course.id != id);
+        displayCourses();
+        displayStats();
+      }
+    }
+
+    // Fonction pour supprimer un utilisateur
+    function deleteUser(id) {
+      if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+        users = users.filter(user => user.id != id);
+        displayUsers();
+        displayStats();
+      }
+    }
+
+    // Fonction pour gérer l'importation de fichiers
+    function handleFileImport(files) {
+      // Simulons l'importation de fichiers
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        console.log(`Fichier importé: ${file.name}`);
+        // Ici, vous pourriez ajouter la logique pour traiter les fichiers importés
+        // Par exemple, lire le contenu du fichier et l'ajouter à la liste des cours
+      }
+      alert(`${files.length} fichier(s) importé(s) avec succès!`);
+    }
+
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+      displayStats();
+      displayCourses();
+      displayUsers();
+      document.getElementById('courseForm').addEventListener('submit', saveCourse);
+
+      // Animation d'entrée pour les sections
+      gsap.from('#stats, #courses, #users', {
+        opacity: 0,
+        y: 50,
+        stagger: 0.2,
+        duration: 0.8,
+        ease: "power2.out"
+      });
+    });
+  </script>
+</body></html>

@@ -1,0 +1,153 @@
+<html><head><base href="https://cours-interactifs-6eme.edu/abonnement">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abonnement aux cours interactifs - 6ème</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+  }
+  header {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  h1, h2 {
+    color: #2c3e50;
+  }
+  .subscription-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  .option {
+    flex-basis: calc(33.333% - 1rem);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3498db;
+    margin: 1rem 0;
+  }
+  .subscribe-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .subscribe-btn:hover {
+    background-color: #27ae60;
+  }
+  .payment-methods {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .payment-methods img {
+    height: 40px;
+    margin: 0 10px 10px 10px;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 1rem;
+    }
+    .subscription-options {
+      flex-direction: column;
+    }
+    .option {
+      flex-basis: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+    }
+    .price {
+      font-size: 1.2rem;
+    }
+    .payment-methods img {
+      height: 30px;
+      margin: 0 5px 5px 5px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Abonnement aux cours interactifs - 6ème</h1>
+  </header>
+
+  <main>
+    <h2>Choisissez votre formule d'abonnement</h2>
+    <p>Accédez à tous nos cours interactifs de SVT, Sciences Physiques et Mathématiques pour la classe de 6ème.</p>
+
+    <div class="subscription-options">
+      <div class="option">
+        <h3>Mensuel</h3>
+        <p class="price">5000 FCFA / mois</p>
+        <p>Accès à tous les cours pendant 1 mois</p>
+        <button class="subscribe-btn" onclick="subscribe('mensuel')">S'abonner</button>
+      </div>
+      <div class="option">
+        <h3>Trimestriel</h3>
+        <p class="price">13500 FCFA / 3 mois</p>
+        <p>Accès à tous les cours pendant 3 mois</p>
+        <button class="subscribe-btn" onclick="subscribe('trimestriel')">S'abonner</button>
+      </div>
+      <div class="option">
+        <h3>Annuel</h3>
+        <p class="price">45000 FCFA / an</p>
+        <p>Accès à tous les cours pendant 1 an</p>
+        <button class="subscribe-btn" onclick="subscribe('annuel')">S'abonner</button>
+      </div>
+    </div>
+
+    <div class="payment-methods">
+      <h3>Moyens de paiement acceptés</h3>
+      <img src="https://cours-interactifs-6eme.edu/images/airtel-money-logo.png" alt="Airtel Money" width="100" height="40">
+      <img src="https://cours-interactifs-6eme.edu/images/moov-money-logo.png" alt="Moov Money" width="100" height="40">
+      <img src="https://cours-interactifs-6eme.edu/images/carte-bancaire-logo.png" alt="Carte Bancaire" width="100" height="40">
+    </div>
+  </main>
+
+  <script>
+    function subscribe(plan) {
+      // Simuler une redirection vers une page de paiement
+      alert(`Vous allez être redirigé vers la page de paiement pour l'abonnement ${plan}.`);
+      window.location.href = `https://cours-interactifs-6eme.edu/paiement?plan=${plan}`;
+    }
+  </script>
+</body></html>

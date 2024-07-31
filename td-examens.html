@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travaux Dirigés</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --accent-color: #e74c3c;
+        --background-color: #ecf0f1;
+        --text-color: #34495e;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+      }
+
+      .grid-container {
+        display: grid;
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      .grid-item {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .grid-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .grid-item h3 {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+      .btnR {
+      background-color: #1cb9e0;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btnA {
+      height: 50px;
+      width: 125px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      background-color: #0b42db;
+      text-align: center;
+      font-size: 20px;
+      color: #fff;
+      font-weight: bold;
+    }
+    .header{
+      height: 90px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: #21da21;
+      border-radius: 8px;
+      color: white;
+    }
+
+      ul {
+        list-style-type: none;
+      }
+
+      li {
+        margin-bottom: 10px;
+        padding: 5px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      li:hover {
+        background-color: #e9ecef;
+      }
+
+      @media (min-width: 768px) {
+        .grid-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 992px) {
+        .grid-container {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .titre{
+        color: white;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      @media (max-width: 767px) {
+        .grid-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <header class="header">
+    <h1 class="titre">Grille de Travaux Dirigés</h1>
+    <a href="./index.html"><button class="btnA">Acceuil</button></a>
+  </header>
+  <body>
+    <div class="container">
+      <h2>Classe de 3ème</h2>
+      <div class="grid-container">
+        <div class="grid-item">
+          <h3>SVT</h3>
+          <ul>
+            <li>TD1: Le corps humain et la santé</li>
+            <li>TD2: Reproduction et sexualité</li>
+            <li>
+              TD3: Évolution des organismes vivants et histoire de la Terre
+            </li>
+            <li>TD4: Risques infectieux et protection de l'organisme</li>
+          </ul>
+        </div>
+        <div class="grid-item">
+          <h3>Sciences Physiques</h3>
+          <ul>
+            <li>TD1: Circuits électriques</li>
+            <li>TD2: Lois d'Ohm et de Joule</li>
+            <li>TD3: Mouvements et forces</li>
+            <li>TD4: Gravitation et poids</li>
+          </ul>
+        </div>
+        <div class="grid-item">
+          <h3>Chimie</h3>
+          <ul>
+            <li>TD1: Atomes et molécules</li>
+            <li>TD2: Transformations chimiques</li>
+            <li>TD3: Acides et bases</li>
+            <li>TD4: Ions et solutions ioniques</li>
+          </ul>
+        </div>
+        <div class="grid-item">
+          <h3>Mathématiques</h3>
+          <ul>
+            <li>TD1: Théorème de Thalès</li>
+            <li>TD2: Théorème de Pythagore</li>
+            <li>TD3: Équations et inéquations</li>
+            <li>TD4: Statistiques et probabilités</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Classe de Terminale</h2>
+      <div class="grid-container">
+        <div class="grid-item">
+          <h3>SVT</h3>
+          <ul>
+            <li>TD1: Génétique et évolution</li>
+            <li>TD2: Écosystèmes et services environnementaux</li>
+            <li>TD3: Corps humain et santé</li>
+            <li>TD4: Enjeux planétaires contemporains</li>
+          </ul>
+        </div>
+        <div class="grid-item">
+          <h3>Sciences Physiques</h3>
+          <ul>
+            <li>TD1: Ondes et signaux</li>
+            <li>TD2: Mouvement et interactions</li>
+            <li>TD3: L'énergie : conversions et transferts</li>
+            <li>TD4: Temps et relativité restreinte</li>
+          </ul>
+        </div>
+        <div class="grid-item">
+          <h3>Chimie</h3>
+          <ul>
+            <li>TD1: Constitution et transformations de la matière</li>
+            <li>TD2: Synthèses organiques</li>
+            <li>TD3: Réactions acido-basiques</li>
+            <li>TD4: Électrochimie et pile</li>
+          </ul>
+        </div>
+        <div class="grid-item">
+          <h3>Mathématiques</h3>
+          <ul>
+            <li>TD1: Suites et récurrence</li>
+            <li>TD2: Limites et continuité</li>
+            <li>TD3: Dérivation et étude de fonctions</li>
+            <li>TD4: Probabilités conditionnelles et lois de probabilité</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Animation d'entrée pour les grilles
+      document.addEventListener("DOMContentLoaded", () => {
+        const gridItems = document.querySelectorAll(".grid-item");
+        gridItems.forEach((item, index) => {
+          item.style.opacity = "0";
+          item.style.transform = "translateY(20px)";
+          setTimeout(() => {
+            item.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0)";
+          }, index * 100);
+        });
+      });
+    </script>
+  </body>
+</html>
